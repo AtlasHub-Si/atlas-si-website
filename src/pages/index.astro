@@ -1,32 +1,168 @@
 ---
-import '../styles/global.css';
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// Textos [REF]: placeholders posicionais com extensão aproximada da referência.
+// Trocar na fase de desconstrução/adaptação (ver RECONSTRUCTION_PLAN.md).
+const platform = 'Linux';
 ---
 
-<html lang="pt">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Atlas-SI — Workforce de IA</title>
-    <meta
-      name="description"
-      content="Atlas-SI: equipas de agentes de IA organizadas por divisões — engenharia, design, marketing e mais."
-    />
-  </head>
-  <body class="min-h-screen bg-neutral-950 text-neutral-100 antialiased">
-    <!-- Placeholder de arranque: o design próprio da Atlas vem depois do mapeamento do openbot.run -->
-    <main class="mx-auto flex max-w-3xl flex-col items-center justify-center px-6 py-32 text-center">
-      <p class="text-sm uppercase tracking-widest text-neutral-400">Atlas-SI</p>
-      <h1 class="mt-4 text-4xl font-bold sm:text-5xl">Site em construção</h1>
-      <p class="mt-6 max-w-xl text-lg text-neutral-300">
-        Estamos a readaptar a experiência do openbot.run para a Atlas-SI — com
-        identidade e conteúdo próprios. Esta página é o scaffold de arranque.
+<Base>
+  <Header />
+
+  <main>
+    <!-- 1. Hero -->
+    <section class="relative overflow-hidden px-4 pt-24 pb-20 text-center">
+      <p class="anim-hero-in mx-auto mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--atlas-border-soft)] px-3 py-1 text-xs text-[var(--atlas-text-muted)]">
+        Disponível para macOS, Windows, Linux, iOS e Android
       </p>
-      <a
-        href="mailto:contact@atlas-si.com"
-        class="mt-10 rounded-full bg-white px-6 py-3 font-medium text-neutral-900 transition hover:bg-neutral-200"
-      >
-        Falar connosco
-      </a>
-    </main>
-  </body>
-</html>
+      <h1 class="anim-hero-in anim-delay-1 mx-auto max-w-5xl text-5xl font-medium leading-[0.96] tracking-[-0.065em] sm:text-7xl lg:text-[clamp(56px,8vw,101px)]">
+        Conhece o <span class="relative inline-block">Atlas
+          <span class="pointer-events-none absolute inset-0 flex overflow-hidden">
+            <span class="block">laboratório</span>
+          </span>
+        </span>
+      </h1>
+      <p class="anim-hero-in anim-delay-2 mx-auto mt-6 max-w-2xl text-lg text-[var(--atlas-text-muted)]">
+        [REF] Subtítulo de referência com a extensão aproximada do original: duas frases
+        a descrever a proposta central do produto de referência.
+      </p>
+      <div class="anim-hero-in anim-delay-3 mt-10 flex flex-wrap items-center justify-center gap-3">
+        <a href="#download" class="rounded-full bg-white px-6 py-3 font-medium text-black transition-colors hover:bg-neutral-200">
+          Download para {platform}
+        </a>
+        <a href="#" class="rounded-full border border-[var(--atlas-border-soft)] px-6 py-3 text-[var(--atlas-text-muted)] transition-colors hover:bg-[var(--atlas-hover)] hover:text-white">
+          Contacto
+        </a>
+      </div>
+      <p class="anim-hero-in anim-delay-3 mt-4 text-xs text-[var(--atlas-text-placeholder)]">[REF] linha de apoio do hero</p>
+    </section>
+
+    <!-- 2. Preview interativo do app (mockup próprio, mesma função/posição) -->
+    <section class="reveal px-4 pb-24">
+      <div class="mx-auto max-w-5xl overflow-hidden rounded-2xl border border-[var(--atlas-border-soft)] bg-[var(--atlas-bg-raised)] shadow-2xl">
+        <div class="flex">
+          <!-- sidebar -->
+          <aside class="hidden w-56 shrink-0 border-r border-[var(--atlas-border-soft)] p-3 sm:block">
+            <div class="mb-3 flex gap-2 text-[10px] text-[var(--atlas-text-muted)]">
+              <span class="rounded-md bg-[var(--atlas-hover)] px-2 py-1">Agentes</span>
+              <span class="rounded-md px-2 py-1">Fluxos</span>
+              <span class="rounded-md px-2 py-1">Tarefas</span>
+            </div>
+            {[0, 1, 2, 3].map(() => (
+              <div class="anim-skel mb-2 h-9 rounded-lg bg-white/5"></div>
+            ))}
+          </aside>
+          <!-- painel principal -->
+          <div class="min-h-[380px] flex-1 p-6">
+            <div class="mb-4 h-3 w-32 rounded bg-white/10"></div>
+            {[80, 65, 90, 55].map((w) => (
+              <div class="mb-3 h-3 rounded bg-white/5" style={`width:${w}%`}></div>
+            ))}
+            <div class="mt-8 rounded-xl border border-[var(--atlas-border-soft)] p-4">
+              <div class="mb-2 flex gap-2">
+                <span class="anim-pulse inline-block h-2.5 w-2.5 rounded-full bg-[var(--atlas-accent)]"></span>
+                <div class="h-3 w-40 rounded bg-white/10"></div>
+              </div>
+              <div class="h-3 w-3/4 rounded bg-white/5"></div>
+            </div>
+            <p class="mt-6 font-mono text-xs text-[var(--atlas-text-muted)]">
+              [REF] linhas de conversa simuladas<span class="anim-pulse" style="animation: atlas-typing-caret 1s steps(1) infinite">▍</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <p class="mx-auto mt-3 max-w-5xl text-center text-xs text-[var(--atlas-text-placeholder)]">[REF] legenda do preview</p>
+    </section>
+
+    <!-- 3. Marquee (faixa rolante) -->
+    <section class="reveal overflow-hidden border-y border-[var(--atlas-border-soft)] py-4">
+      <div class="anim-marquee flex w-max gap-10 text-sm text-[var(--atlas-text-muted)]">
+        {[...Array(2)].map(() => (
+          <div class="flex gap-10">
+            {['Integração A', 'Integração B', 'Integração C', 'Integração D', 'Integração E', 'Integração F', 'Integração G', 'Integração H'].map((n) => (
+              <span>{n} [REF]</span>
+            ))}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- 4. What it does (3 blocos) -->
+    <section class="reveal mx-auto max-w-6xl px-4 py-24">
+      <h2 class="mb-12 text-center text-3xl font-medium tracking-tight sm:text-4xl">[REF] O que faz</h2>
+      <div class="grid gap-6 md:grid-cols-3">
+        {[1, 2, 3].map((i) => (
+          <div class="rounded-2xl border border-[var(--atlas-border-soft)] bg-[var(--atlas-bg-raised)] p-8 transition-colors hover:bg-[var(--atlas-hover)]">
+            <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--atlas-accent-soft)] text-[var(--atlas-accent)]">◆</div>
+            <h3 class="mb-2 text-lg font-medium">[REF] Capacidade {i}</h3>
+            <p class="text-sm text-[var(--atlas-text-muted)]">[REF] Descrição de duas a três frases com a extensão aproximada do bloco original, para calibrar a composição.</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- 5. Free / valor -->
+    <section class="reveal border-y border-[var(--atlas-border-soft)] bg-[var(--atlas-bg-raised)] px-4 py-20 text-center">
+      <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">[REF] Título do bloco de valor</h2>
+      <p class="mx-auto mt-4 max-w-xl text-[var(--atlas-text-muted)]">[REF] Parágrafo de suporte do bloco de valor, duas frases.</p>
+      <a href="#" class="mt-8 inline-block rounded-full border border-[var(--atlas-border-soft)] px-6 py-3 transition-colors hover:bg-[var(--atlas-hover)]">[REF] CTA secundário</a>
+    </section>
+
+    <!-- 6. Workflow (diagrama com draw animation) -->
+    <section class="reveal mx-auto max-w-4xl px-4 py-24">
+      <h2 class="mb-12 text-center text-3xl font-medium tracking-tight">[REF] Como funciona</h2>
+      <svg viewBox="0 0 600 160" class="mx-auto w-full max-w-2xl" fill="none">
+        <path class="anim-wf-draw" d="M40 80 H 180 Q 200 80 220 60 Q 240 40 260 40 H 340 Q 360 40 380 60 Q 400 80 420 80 H 560" stroke="var(--atlas-accent)" stroke-width="2" stroke-linecap="round" />
+        {[[40, 80, 'Entrada'], [300, 40, 'Processo'], [560, 80, 'Resultado']].map(([x, y, label]) => (
+          <g>
+            <circle cx={x} cy={y} r="14" class="anim-pulse" fill="var(--atlas-accent-soft)" stroke="var(--atlas-accent)" stroke-width="2" style="transform-origin: center; transform-box: fill-box;" />
+            <text x={x} y={y + 34} text-anchor="middle" class="fill-neutral-400 text-[11px]">{label}</text>
+          </g>
+        ))}
+      </svg>
+    </section>
+
+    <!-- 7. Teams (4 cards) -->
+    <section class="reveal mx-auto max-w-6xl px-4 pb-24">
+      <h2 class="mb-2 text-center text-3xl font-medium tracking-tight">[REF] Para equipas</h2>
+      <p class="mb-12 text-center text-[var(--atlas-text-muted)]">[REF] Subtítulo da secção B2B.</p>
+      <div class="grid gap-6 sm:grid-cols-2">
+        {['Opção A', 'Opção B', 'Opção C', 'Opção D'].map((o) => (
+          <div class="rounded-2xl border border-[var(--atlas-border-soft)] bg-[var(--atlas-bg-raised)] p-8 transition-colors hover:bg-[var(--atlas-hover)]">
+            <h3 class="mb-2 text-lg font-medium">{o} [REF]</h3>
+            <p class="text-sm text-[var(--atlas-text-muted)]">[REF] Descrição de uma a duas frases do cartão de valor.</p>
+          </div>
+        ))}
+      </div>
+      <div class="mt-10 flex justify-center gap-3">
+        <a href="#" class="rounded-full bg-white px-6 py-3 font-medium text-black transition-colors hover:bg-neutral-200">Contacto</a>
+        <a href="#" class="rounded-full border border-[var(--atlas-border-soft)] px-6 py-3 transition-colors hover:bg-[var(--atlas-hover)]">Saber mais</a>
+      </div>
+    </section>
+
+    <!-- 8. Questions (FAQ) -->
+    <section class="reveal mx-auto max-w-3xl px-4 pb-24">
+      <h2 class="mb-10 text-center text-3xl font-medium tracking-tight">[REF] Perguntas</h2>
+      {['Pergunta de referência 1', 'Pergunta de referência 2', 'Pergunta de referência 3', 'Pergunta de referência 4'].map((q) => (
+        <details class="group mb-3 rounded-xl border border-[var(--atlas-border-soft)] bg-[var(--atlas-bg-raised)] px-5 py-4">
+          <summary class="cursor-pointer list-none font-medium transition-colors group-open:text-[var(--atlas-accent)]">{q} [REF]</summary>
+          <p class="mt-3 text-sm text-[var(--atlas-text-muted)]">[REF] Resposta com duas a três frases.</p>
+        </details>
+      ))}
+    </section>
+
+    <!-- 9. Download -->
+    <section id="download" class="reveal px-4 pb-32 text-center">
+      <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">[REF] Download</h2>
+      <div class="mx-auto mt-8 flex max-w-2xl flex-wrap justify-center gap-3">
+        {['macOS', 'Windows', 'Linux', 'iPhone', 'Android'].map((p) => (
+          <a href="#" class="rounded-full border border-[var(--atlas-border-soft)] px-5 py-2.5 text-sm text-[var(--atlas-text-muted)] transition-colors hover:bg-[var(--atlas-hover)] hover:text-white">{p}</a>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Base>

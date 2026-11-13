@@ -1,0 +1,38 @@
+---
+// Footer 4 colunas (estrutura de referência, conteúdo próprio)
+const cols = [
+  {
+    h: 'Produto',
+    links: ['Download', 'News', 'Guias', 'Marketplace', 'Changelog', 'Equipas', 'Preços', 'Contacto', 'Marca', 'Licença', 'Privacidade', 'Termos'],
+  },
+  { h: 'Recursos', links: ['Documentação', 'Resolução de problemas', 'Estado', 'Servidor self-hosted', 'Arquitetura', 'Contribuir'] },
+  { h: 'Integrações', links: ['Plugins', 'Skills', 'Apps', 'API', 'Webhooks'] },
+  { h: 'Comparar', links: ['Comparação 1', 'Comparação 2', 'Comparação 3', 'Todas'] },
+];
+---
+
+<footer class="reveal border-t border-[var(--atlas-border-soft)] bg-[var(--atlas-bg-raised)]">
+  <div class="mx-auto max-w-6xl px-4 py-16">
+    <div class="grid grid-cols-2 gap-8 sm:grid-cols-4">
+      {cols.map((c) => (
+        <div>
+          <h3 class="mb-3 text-xs font-semibold uppercase tracking-wider text-[var(--atlas-text-muted)]">{c.h}</h3>
+          <ul class="space-y-2 text-sm">
+            {c.links.map((l) => (
+              <li><a href="#" class="text-[var(--atlas-text-muted)] transition-colors hover:text-white">{l}</a></li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+    <div class="mt-12 flex flex-col items-start justify-between gap-4 border-t border-[var(--atlas-border-soft)] pt-8 text-xs text-[var(--atlas-text-muted)] sm:flex-row sm:items-center">
+      <p>Atlas-SI — réplica de referência para laboratório. Não é o produto final.</p>
+      <p class="flex gap-4">
+        <a href="#" class="hover:text-white">GitHub</a>
+        <a href="#" class="hover:text-white">X</a>
+        <a href="#" class="hover:text-white">Discord</a>
+        <a href="#" class="hover:text-white">LinkedIn</a>
+      </p>
+    </div>
+  </div>
+</footer>
