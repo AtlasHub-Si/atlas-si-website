@@ -2,9 +2,9 @@
 // contains the keyframes, that entrance animations apply, that scroll reveals
 // fire, and that the $0 light sheen actually MOVES (pixel diff over time).
 // Also probes with prefers-reduced-motion: reduce to compare.
-import { chromium } from '../node_modules/playwright-core/index.mjs';
+import { chromium } from 'playwright-core/index.mjs';
 
-const CHROME = process.env.CHROME_PATH || '/home/z/.cache/ms-playwright/chromium-1200/chrome-linux64/chrome';
+const CHROME = 'process.env.CHROME_PATH || '/home/z/.cache/ms-playwright/chromium-1200/chrome-linux64/chrome'';
 const BASE = process.argv[2] || 'https://atlas-si-website.vercel.app';
 
 const browser = await chromium.launch({ args: ['--no-sandbox'], executablePath: CHROME });

@@ -202,14 +202,6 @@ recarregamento (Ctrl+Shift+R). Para prova objetiva no site publicado:
 `data-revealed` no scroll e movimento real do `$0`/coração por diff de píxeis,
 em modo normal e reduzido).
 
-**Round 1 (maquete "Dual-Ecosystem AI Vision"):** logo redesenhado como
-triângulo-"A" com gradiente da paleta (expressões Core/Living) e **anel
-orbital "Energia"** no hero; **família de 6 personagens** (Guide, Creator,
-Builder, Analyst, Flow, Shield) numa nova faixa entre hero e pricing;
-**workflows em movimento** no preview (pulso sequencial dos agentes +
-pipeline Evidence→Review→Release); paleta em navy profundo com acento
-`#2f7bff` + ciano/âmbar. Detalhe em `docs/ANIMATIONS.md`.
-
 ## Verificação visual
 
 `scripts/shot-atlas.mjs` (Playwright) captura as páginas chave para

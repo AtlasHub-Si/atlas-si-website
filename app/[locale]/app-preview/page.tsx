@@ -9,7 +9,6 @@
  */
 
 import { useEffect, useState } from "react";
-import type { CSSProperties } from "react";
 
 const READY_MESSAGE = "atlasbot:landing-preview-ready";
 const START_MESSAGE = "atlasbot:landing-preview-start";
@@ -32,12 +31,8 @@ const AGENTS: readonly PreviewAgent[] = [
 const WORKSTREAMS = [
   { name: "Evidence", owner: "Research", ownerColor: "#31cf76", status: "7 of 8 claims verified" },
   { name: "Rebuild", owner: "Builder", ownerColor: "#ff9412", status: "Ready after rollback" },
-  { name: "Release", owner: "Launch", ownerColor: "#41c9ff", status: "Ready after final claim" },
+  { name: "Release", owner: "Launch", ownerColor: "#d6adf2", status: "Ready after final claim" },
 ] as const;
-
-/* The moving workflow under the brief: the same handoff the table describes,
-   playing as a loop once the scene starts. */
-const WORKFLOW_STEPS = ["Evidence", "Review", "Release"] as const;
 
 export default function AppPreviewPage() {
   const [started, setStarted] = useState(false);
@@ -74,22 +69,10 @@ export default function AppPreviewPage() {
         <div className="preview-sidebar-brand">
           <span className="preview-sidebar-logo" aria-hidden="true">
             <svg viewBox="0 0 240 240" width="20" height="20">
-              <rect width="240" height="240" rx="50" fill="#0c1730" />
-              <defs>
-                <linearGradient id="preview-logo-glyph" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stopColor="#4a9dff" />
-                  <stop offset="0.55" stopColor="#2f7bff" />
-                  <stop offset="1" stopColor="#41c9ff" />
-                </linearGradient>
-              </defs>
-              <path
-                fillRule="evenodd"
-                fill="url(#preview-logo-glyph)"
-                d="M113.8 47.8 A13 13 0 0 1 126.2 47.8 L195.4 183.2 A13 13 0 0 1 184.1 196 L55.9 196 A13 13 0 0 1 44.6 183.2 Z M120 114 L139.2 189.4 A6.5 6.5 0 0 1 132.9 196 L107.1 196 A6.5 6.5 0 0 1 100.8 189.4 Z"
-              />
-              <g fill="none" stroke="#ffffff" strokeWidth="18" strokeLinecap="round">
-                <path d="M89 112 Q97 121 105 112" />
-                <path d="M135 112 Q143 121 151 112" />
+              <rect width="240" height="240" rx="50" fill="#d6adf2" />
+              <g fill="none" stroke="#040007" strokeWidth="14" strokeLinecap="round">
+                <polyline points="43.55 93.61 64.69 81.41 36.48 108.04 79.67 83.11 35.93 122.88 91.58 90.74 38.9 132.69 97.66 98.76 42.44 138.88 100.43 105.4 46.9 143.83 101.97 112.04 55.08 149.51 101.83 122.52 73.01 152.43 94.14 140.23" />
+                <polyline points="145.65 93.61 166.79 81.41 140.83 101.52 175.58 81.46 138.3 109.53 183.18 83.63 137.55 117.43 189.67 87.33 139.67 129.39 197.88 95.78 142.92 136.32 201.52 102.48 149.03 143.86 204.07 112.08 159.14 150.37 203.51 124.75 169.28 152.61 199.82 134.98" />
               </g>
             </svg>
           </span>
@@ -160,20 +143,10 @@ export default function AppPreviewPage() {
                 ))}
               </tbody>
             </table>
-            <div className="preview-workflow" aria-hidden="true">
-              {WORKFLOW_STEPS.map((step, index) => (
-                <span className="preview-workflow-pair" key={step}>
-                  {index > 0 && <span className="preview-workflow-link" style={{ "--wfi": index - 1 } as CSSProperties} />}
-                  <span className="preview-workflow-step" style={{ "--wfi": index } as CSSProperties}>
-                    {step}
-                  </span>
-                </span>
-              ))}
-            </div>
             <p className="preview-files">
               Source files: <span className="preview-file">launch-brief.md</span> and{" "}
               <span className="preview-file">launch-metrics.csv</span> ·{" "}
-              <span style={{ color: "#41c9ff" }}>Launch</span> can publish when the final claim is confirmed.
+              <span style={{ color: "#d6adf2" }}>Launch</span> can publish when the final claim is confirmed.
             </p>
           </div>
 

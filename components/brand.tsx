@@ -15,8 +15,6 @@ export interface AppLogoProps {
   variant?: AppLogoVariant;
   animation?: AppLogoAnimation;
   interactive?: boolean;
-  /** The board's "Energia" expression: a light streak travelling an orbit ring. */
-  orbit?: boolean;
   className?: string;
   ariaLabel?: string;
 }
@@ -25,7 +23,6 @@ export function AppLogo({
   variant = "production",
   animation = "none",
   interactive = false,
-  orbit = false,
   className,
   ariaLabel,
 }: AppLogoProps) {
@@ -123,39 +120,17 @@ export function AppLogo({
       onPointerLeave={resetEyePosition}
       onPointerMove={handlePointerMove}
     >
-      <defs>
-        {/* The board's brand gradient: blue deepening into cyan on the edges. */}
-        <linearGradient id="app-logo-glyph" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#4a9dff" />
-          <stop offset="0.55" stopColor="#2f7bff" />
-          <stop offset="1" stopColor="#41c9ff" />
-        </linearGradient>
-      </defs>
       <rect className="app-logo-background" width="240" height="240" rx="50" ry="50" />
-      {orbit && (
-        <g className="app-logo-orbit" aria-hidden="true">
-          <ellipse className="app-logo-orbit-ring" cx="120" cy="116" rx="100" ry="30" />
-          <ellipse className="app-logo-orbit-streak" cx="120" cy="116" rx="100" ry="30" />
-        </g>
-      )}
-      {/* The Core mark: the rounded triangle "A" with its bottom notch. */}
-      <path
-        className="app-logo-glyph"
-        fillRule="evenodd"
-        d="M113.8 47.8 A13 13 0 0 1 126.2 47.8 L195.4 183.2 A13 13 0 0 1 184.1 196 L55.9 196 A13 13 0 0 1 44.6 183.2 Z M120 114 L139.2 189.4 A6.5 6.5 0 0 1 132.9 196 L107.1 196 A6.5 6.5 0 0 1 100.8 189.4 Z"
-      />
       <g className="app-logo-eye-motion">
-        <path
+        <polyline
           className="app-logo-eye app-logo-eye-left"
-          d="M89 112 Q97 121 105 112"
-          fill="none"
+          points="43.55 93.61 64.69 81.41 36.48 108.04 79.67 83.11 35.93 122.88 91.58 90.74 38.9 132.69 97.66 98.76 42.44 138.88 100.43 105.4 46.9 143.83 101.97 112.04 55.08 149.51 101.83 122.52 73.01 152.43 94.14 140.23"
         />
       </g>
       <g className="app-logo-eye-motion">
-        <path
+        <polyline
           className="app-logo-eye app-logo-eye-right"
-          d="M135 112 Q143 121 151 112"
-          fill="none"
+          points="145.65 93.61 166.79 81.41 140.83 101.52 175.58 81.46 138.3 109.53 183.18 83.63 137.55 117.43 189.67 87.33 139.67 129.39 197.88 95.78 142.92 136.32 201.52 102.48 149.03 143.86 204.07 112.08 159.14 150.37 203.51 124.75 169.28 152.61 199.82 134.98"
         />
       </g>
     </svg>

@@ -31,12 +31,6 @@ export interface Dictionary {
   };
   preview: { title: string; loading: string };
   pricing: { eyebrow: string; note: string };
-  family: {
-    eyebrow: string;
-    title: string;
-    note: string;
-    roles: { guide: string; creator: string; builder: string; analyst: string; flow: string; shield: string };
-  };
   download: {
     title: string;
     subtitle: string;
@@ -162,19 +156,6 @@ const en: Dictionary = {
   pricing: {
     eyebrow: "What it costs",
     note: "AtlasBot is free. No hidden fees. No locked features.",
-  },
-  family: {
-    eyebrow: "The family",
-    title: "Meet the AtlasBot family",
-    note: "Six everyday agents, one for each part of your day.",
-    roles: {
-      guide: "Help & Onboarding",
-      creator: "Content & Ideas",
-      builder: "Automation & Agents",
-      analyst: "Data & Insights",
-      flow: "Processes & Productivity",
-      shield: "Security & Privacy",
-    },
   },
   download: {
     title: "Download AtlasBot",
@@ -328,19 +309,6 @@ const pt: Dictionary = {
   pricing: {
     eyebrow: "O que custa",
     note: "O AtlasBot é gratuito. Sem custos escondidos. Sem funcionalidades bloqueadas.",
-  },
-  family: {
-    eyebrow: "A família",
-    title: "Conhece a família AtlasBot",
-    note: "Seis agentes de uso diário, um para cada parte do teu dia.",
-    roles: {
-      guide: "Ajuda & Onboarding",
-      creator: "Conteúdo & Ideias",
-      builder: "Automação & Agentes",
-      analyst: "Dados & Insights",
-      flow: "Processos & Produtividade",
-      shield: "Segurança & Privacidade",
-    },
   },
   download: {
     title: "Descarregar o AtlasBot",
@@ -496,19 +464,6 @@ const fr: Dictionary = {
     eyebrow: "Ce que ça coûte",
     note: "AtlasBot est gratuit. Aucun frais caché. Aucune fonctionnalité verrouillée.",
   },
-  family: {
-    eyebrow: "La famille",
-    title: "Découvrez la famille AtlasBot",
-    note: "Six agents du quotidien, un pour chaque moment de votre journée.",
-    roles: {
-      guide: "Aide & Intégration",
-      creator: "Contenu & Idées",
-      builder: "Automatisation & Agents",
-      analyst: "Données & Analyses",
-      flow: "Processus & Productivité",
-      shield: "Sécurité & Confidentialité",
-    },
-  },
   download: {
     title: "Télécharger AtlasBot",
     subtitle:
@@ -662,19 +617,6 @@ const es: Dictionary = {
   pricing: {
     eyebrow: "Lo que cuesta",
     note: "AtlasBot es gratis. Sin costes ocultos. Sin funciones bloqueadas.",
-  },
-  family: {
-    eyebrow: "La familia",
-    title: "Conoce la familia AtlasBot",
-    note: "Seis agentes de uso diario, uno para cada parte de tu día.",
-    roles: {
-      guide: "Ayuda & Incorporación",
-      creator: "Contenido e Ideas",
-      builder: "Automatización y Agentes",
-      analyst: "Datos e Insights",
-      flow: "Procesos y Productividad",
-      shield: "Seguridad y Privacidad",
-    },
   },
   download: {
     title: "Descargar AtlasBot",
