@@ -1032,3 +1032,12 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* Ambient exception: the 26 s article-gradient drift is a slow
+   background-position shift with no translation, so it also runs under
+   reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  .post-gradient::before {
+    animation: post-gradient-drift 26s ease-in-out infinite alternate;
+  }
+}

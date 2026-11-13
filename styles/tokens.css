@@ -317,3 +317,12 @@
     transform: none;
   }
 }
+
+/* Ambient exception: keep the logo's slow blink alive under reduced motion —
+   a 200 ms eye squeeze every 4.8 s, no translation, no scroll coupling. */
+@media (prefers-reduced-motion: reduce) {
+  .app-logo[data-animation="blink"] .app-logo-eye {
+    animation: app-logo-blink 4.8s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+    transform: none;
+  }
+}

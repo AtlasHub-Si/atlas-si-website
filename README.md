@@ -189,7 +189,18 @@ Anything). Resumo: feixe de luz no `$0`, aurora scroll-driven, stagger do hero,
 reveal por scroll (IntersectionObserver −40%), sweep dos cards por índice,
 coração do rodapé, menu de descarga, handshake do preview com caret a escrever,
 logo vivo (blink/eye-tracking/wink/party easter egg), aurora determinística dos
-artigos. Tudo respeita `prefers-reduced-motion`.
+artigos. Tudo respeita `prefers-reduced-motion` — com **exceção ambient** para
+os loops de baixa amplitude (feixe do `$0`, coração, blink do logo, drift da
+gradiente), que continuam mesmo nesse modo (ver fim de `landing.css`,
+`tokens.css` e `post.css`; detalhe em `docs/ANIMATIONS.md`).
+
+**Se o site parecer não animar:** verifica primeiro a definição do sistema
+*reduzir movimento* (Windows: *Efeitos de animação*; macOS/iOS: *Reduzir
+movimento*) — ela desliga entradas e scroll por acessibilidade — e força um
+recarregamento (Ctrl+Shift+R). Para prova objetiva no site publicado:
+`node scripts/motion-probe.mjs https://<domínio>` (verifica keyframes no CSS,
+`data-revealed` no scroll e movimento real do `$0`/coração por diff de píxeis,
+em modo normal e reduzido).
 
 ## Verificação visual
 

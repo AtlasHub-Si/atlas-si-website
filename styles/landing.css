@@ -1588,3 +1588,18 @@
     transition: none;
   }
 }
+
+/* Ambient exception (AtlasBot): under prefers-reduced-motion the entrance and
+   scroll motion stays off — pages arrive at rest — but the low-amplitude
+   signature loops keep running so the brand never looks frozen: the $0 light
+   sheen drift and the footer heart pulse. Remove this block to honour full
+   stillness. */
+@media (prefers-reduced-motion: reduce) {
+  .landing-pricing-amount[data-revealed="true"] {
+    animation: landing-price-sheen 14s ease-in-out 0ms infinite alternate;
+  }
+
+  .landing-footer-made svg {
+    animation: landing-footer-heart 1.8s ease-in-out infinite;
+  }
+}

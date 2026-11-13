@@ -155,6 +155,31 @@ animation:
 
 ---
 
-## Movimento reduzido
+## Movimento reduzido — e o que o visitante vê
 
-`app/globals.css` desliga globalmente animações/transições sob `prefers-reduced-motion: reduce` (0.01ms); `reveal.tsx`, `glow.tsx`, `brand.tsx`, `article-media.tsx` e o handshake do preview respeitam a media query individualmente e entregam o estado final imediatamente.
+`app/globals.css` desliga globalmente animações/transições sob
+`prefers-reduced-motion: reduce` (0.01ms); `reveal.tsx`, `glow.tsx`,
+`brand.tsx`, `article-media.tsx` e o handshake do preview respeitam a media
+query individualmente e entregam o estado final imediatamente. As entradas, o
+sweep dos cards, o stagger do hero e a aurora scroll-driven ficam desligados.
+
+**Exceção ambient (AtlasBot):** os loops de baixa amplitude continuam a correr
+mesmo no modo reduzido, para a marca nunca parecer congelada — o feixe de luz
+do `$0` (deslize de `background-position`, sem translação), o coração do
+rodapé, o blink lento do logo e o drift da gradiente dos artigos. Os blocos
+que re-ativam esses loops estão no fim de `landing.css`, `tokens.css` e
+`post.css`; remover esses blocos devolve a imobilidade total.
+
+### Se o site parecer não animar
+
+1. **Definição do sistema "reduzir movimento"** — é a causa nº 1: Windows
+   (Definições → Acessibilidade → Efeitos visuais → *Efeitos de animação*),
+   macOS/iOS (Acessibilidade → *Reduzir movimento*), Android (*Remover
+   animações*). Com ela ativa, as entradas e o scroll ficam parados por design;
+   só os loops ambientais continuam.
+2. **Cache do deploy anterior** — forçar recarregamento (Ctrl+Shift+R /
+   limpar dados do site).
+3. **Prova objetiva:** `node scripts/motion-probe.mjs https://<domínio>`
+   verifica no site publicado os keyframes enviados no CSS, as animações
+   aplicadas, o flip de `data-revealed` no scroll e o movimento real do `$0`
+   e do coração (diff de píxeis), em modo normal e reduzido.
