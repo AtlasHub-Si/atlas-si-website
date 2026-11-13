@@ -8,7 +8,9 @@
  */
 
 import { useEffect, useRef, useState } from "react";
+import type { CSSProperties } from "react";
 import { AppLogo, PlatformLogo, ProviderLogo } from "@/components/brand";
+import { ATLAS_FAMILY, AtlasCharacter } from "@/components/characters";
 import { LandingIcon } from "@/components/icons";
 import { LandingFooter, LandingHeader } from "@/components/chrome";
 import { useLandingReveal } from "@/components/reveal";
@@ -107,6 +109,40 @@ function DownloadSection({ dict }: { dict: Dictionary }) {
   );
 }
 
+function FamilySection({ dict }: { dict: Dictionary }) {
+  const { ref, revealed } = useLandingReveal<HTMLElement>();
+  const revealState = revealed ? "true" : "false";
+  return (
+    <section ref={ref} className="landing-family" aria-labelledby="family-title">
+      <div className="landing-family-inner">
+        <p className="landing-family-eyebrow" data-revealed={revealState}>
+          {dict.family.eyebrow}
+        </p>
+        <h2 id="family-title" className="landing-family-title" data-revealed={revealState}>
+          {dict.family.title}
+        </h2>
+        <p className="landing-family-note" data-revealed={revealState}>
+          {dict.family.note}
+        </p>
+        <div className="landing-family-row">
+          {ATLAS_FAMILY.map((member, index) => (
+            <div
+              key={member.id}
+              className="landing-family-card"
+              data-revealed={revealState}
+              style={{ "--family-index": index } as CSSProperties}
+            >
+              <AtlasCharacter role={member.id} className="landing-family-avatar" />
+              <strong className="landing-family-name">{member.name}</strong>
+              <span className="landing-family-role">{dict.family.roles[member.id]}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function LandingPage({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const heroRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
@@ -154,6 +190,7 @@ export function LandingPage({ locale, dict }: { locale: Locale; dict: Dictionary
                 variant="production"
                 animation="blink"
                 interactive
+                orbit
                 className="landing-hero-logo"
                 ariaLabel={dict.brand.animate}
               />
@@ -195,6 +232,7 @@ export function LandingPage({ locale, dict }: { locale: Locale; dict: Dictionary
 
           <LandingAppPreview dict={dict} />
         </section>
+        <FamilySection dict={dict} />
         <PricingSection dict={dict} />
         <DownloadSection dict={dict} />
       </main>

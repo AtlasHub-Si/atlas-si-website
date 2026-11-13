@@ -4,22 +4,22 @@
  */
 
 :root {
-  /* Grouped sheet surfaces. */
-  --atlasbot-bg-sheet: #121212;
-  --atlasbot-bg-grouped: #212121;
-  --atlasbot-text-grouped-secondary: #96969b;
-  --atlasbot-border-grouped: #333335;
+  /* Grouped sheet surfaces — the board's deep-space navy. */
+  --atlasbot-bg-sheet: #0d1426;
+  --atlasbot-bg-grouped: #18213b;
+  --atlasbot-text-grouped-secondary: #9aa8cc;
+  --atlasbot-border-grouped: #2a3452;
 
-  /* Neutral system. */
-  --atlasbot-bg-canvas: #1a1a1a;
-  --atlasbot-bg-canvas-clear: rgba(26, 26, 26, 0);
-  --atlasbot-bg-sidebar: #1a1a1a;
-  --atlasbot-bg-surface: #212121;
-  --atlasbot-bg-surface-raised: #242424;
-  --atlasbot-bg-control: #212121;
-  --atlasbot-bg-control-hover: #242424;
-  --atlasbot-bg-overlay: rgba(26, 26, 26, 0.92);
-  --atlasbot-bg-glass: rgba(33, 33, 33, 0.76);
+  /* Neutral system, retinted from pure grey to the navy family. */
+  --atlasbot-bg-canvas: #070d1c;
+  --atlasbot-bg-canvas-clear: rgba(7, 13, 28, 0);
+  --atlasbot-bg-sidebar: #0a1120;
+  --atlasbot-bg-surface: #111a30;
+  --atlasbot-bg-surface-raised: #16203a;
+  --atlasbot-bg-control: #111a30;
+  --atlasbot-bg-control-hover: #16203a;
+  --atlasbot-bg-overlay: rgba(7, 13, 28, 0.92);
+  --atlasbot-bg-glass: rgba(15, 23, 44, 0.78);
 
   /* Landing glass surfaces. */
   --atlasbot-glass-surface: rgba(255, 255, 255, 0.07);
@@ -27,7 +27,7 @@
   --atlasbot-glass-border: rgba(255, 255, 255, 0.18);
   --atlasbot-glass-highlight: rgba(255, 255, 255, 0.12);
   --atlasbot-glass-shadow: rgba(0, 0, 0, 0.28);
-  --atlasbot-hero-grid-line: rgba(214, 173, 242, 0.09);
+  --atlasbot-hero-grid-line: rgba(122, 177, 255, 0.1);
 
   /* The "$0" price figure: a dark glass glyph lit by one iridescent band. */
   --atlasbot-price-metal-high: #4c4c4c;
@@ -48,7 +48,7 @@
   --atlasbot-mask-solid: #000000;
   --atlasbot-border: rgba(255, 255, 255, 0.035);
   --atlasbot-border-strong: rgba(255, 255, 255, 0.045);
-  --atlasbot-border-focus: rgba(0, 124, 247, 0.72);
+  --atlasbot-border-focus: rgba(47, 123, 255, 0.72);
   --atlasbot-text-primary: #ffffff;
   --atlasbot-text-on-light: #141414;
   --atlasbot-surface-light: #f0f0f0;
@@ -61,18 +61,22 @@
   --atlasbot-download-card-focus: rgba(242, 242, 242, 0.86);
   --atlasbot-text-placeholder: #bfbfbf;
 
-  --atlasbot-accent: #007cf7;
-  --atlasbot-accent-hover: #1f8fff;
-  --atlasbot-accent-text: #42a0ff;
-  --atlasbot-accent-soft: rgba(0, 124, 247, 0.16);
-  --atlasbot-accent-strong: rgba(0, 124, 247, 0.34);
+  --atlasbot-accent: #2f7bff;
+  --atlasbot-accent-hover: #4d92ff;
+  --atlasbot-accent-text: #63b0ff;
+  --atlasbot-accent-soft: rgba(47, 123, 255, 0.16);
+  --atlasbot-accent-strong: rgba(47, 123, 255, 0.36);
+
+  /* The board's secondary brand colours. */
+  --atlasbot-brand-cyan: #41c9ff;
+  --atlasbot-brand-amber: #ffb02e;
 
   --atlasbot-provider-codex: var(--atlasbot-text-primary);
   --atlasbot-provider-claude: #d97757;
   --atlasbot-provider-grok: var(--atlasbot-text-primary);
 
-  --atlasbot-logo-production: #d6adf2;
-  --atlasbot-logo-eye: #040007;
+  --atlasbot-logo-production: #0c1730;
+  --atlasbot-logo-eye: #ffffff;
   --atlasbot-logo-dev: #ff9412;
   --atlasbot-logo-preview: #31cf76;
 
@@ -155,12 +159,48 @@
   fill: var(--app-logo-background);
 }
 
+/* The Core mark: the board's gradient triangle "A". */
+.app-logo-glyph {
+  fill: url(#app-logo-glyph);
+  pointer-events: none;
+}
+
+/* The "Energia" expression: an orbit ring with a travelling light streak. */
+.app-logo-orbit {
+  transform-box: view-box;
+  transform-origin: center;
+  transform: rotate(-14deg);
+  pointer-events: none;
+}
+
+.app-logo-orbit-ring {
+  fill: none;
+  stroke: rgba(122, 177, 255, 0.3);
+  stroke-width: 2.5;
+}
+
+.app-logo-orbit-streak {
+  fill: none;
+  stroke: var(--atlasbot-brand-cyan);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 80 359;
+  opacity: 0.9;
+  animation: app-logo-orbit 8s linear infinite;
+}
+
+@keyframes app-logo-orbit {
+  to {
+    stroke-dashoffset: -439;
+  }
+}
+
 .app-logo-eye {
   fill: none;
   stroke: var(--atlasbot-logo-eye);
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-width: 9.5px;
+  stroke-width: 10px;
   pointer-events: none;
   transform-box: view-box;
 }
@@ -173,11 +213,11 @@
 }
 
 .app-logo-eye-left {
-  transform-origin: 28.7% 48.7%;
+  transform-origin: 40.4% 48.3%;
 }
 
 .app-logo-eye-right {
-  transform-origin: 71.2% 48.8%;
+  transform-origin: 59.6% 48.3%;
 }
 
 .app-logo[data-animation="blink"] .app-logo-eye {

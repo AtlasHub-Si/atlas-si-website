@@ -183,3 +183,39 @@ que re-ativam esses loops estão no fim de `landing.css`, `tokens.css` e
    verifica no site publicado os keyframes enviados no CSS, as animações
    aplicadas, o flip de `data-revealed` no scroll e o movimento real do `$0`
    e do coração (diff de píxeis), em modo normal e reduzido.
+
+---
+
+## Round 1 — maquete "Atlas: Dual-Ecosystem AI Vision"
+
+Primeira revisão visual baseada na maquete, sem alterar a organização da
+página. O que entrou:
+
+- **Logo (expressões Core + Living):** o `AppLogo` passa a ser o glifo
+  triangular "A" com gradiente azul→ciano da paleta do board e os olhos
+  felizes dentro do triângulo. Blink, wink, party e eye-tracking mantêm-se
+  (mesmas classes `app-logo-eye-*` e atributos de estado). Produção: quadrado
+  navy `#0c1730`. O favicon (`app/icon.svg`, `public/icon-240.png`) acompanha
+  (`scripts/render-icon.mjs` regenera o PNG).
+- **Expressão Energia:** o logo do hero recebe `orbit` — anel orbital
+  (rotação −14°) com um traço de luz ciano a percorrer
+  (`app-logo-orbit`, 8s linear). Em movimento reduzido o anel fica estático.
+- **Família de personagens** (`components/characters.tsx`): Guide, Creator,
+  Builder, Analyst, Flow e Shield — corpos triangulares arredondados com
+  gradiente, olhos felizes, emblema de função no ventre e headphones em
+  Guide/Creator. Entra como nova faixa **"Conhece a família AtlasBot"**
+  entre o hero e o pricing, com reveal partilhado (`landing-download-reveal`)
+  e stagger por `--family-index`; hover ergue o cartão e inclina a mascote.
+  Legendas localizadas (PT/EN/FR/ES) via `dict.family`.
+- **Workflows em movimento** (preview `/app-preview`): cada agente da barra
+  lateral mostra um pulso ciano de "busy" em sequência (ciclo de 8s) e o
+  pipeline *Evidence → Review → Release* acende passo a passo com o link a
+  fluir (ciclo de 9s), ambos gated por `data-started` e desligados em
+  movimento reduzido.
+- **Paleta:** superfícies neutras → família navy do board (`#070d1c` canvas,
+  `#0d1426` sheet, `#111a30` surface), acento `#2f7bff`, tokens novos
+  `--atlasbot-brand-cyan`/`--atlasbot-brand-amber`. O `$0` (sheen) e a aurora
+  dos artigos mantêm o comportamento — agora sobre navy.
+
+Próximos rounds possíveis: expressão Partículas do logo, mascotes nas
+páginas de coleção, og.png com a nova marca.

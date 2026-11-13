@@ -1,11 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
   <!--
-    AtlasBot favicon: the eye mark on its rounded production square.
-    Matches components/brand.tsx (AppLogo, variant "production").
+    AtlasBot favicon: the Core mark (gradient triangle "A") with the Living
+    face, on the deep-navy production square. Matches components/brand.tsx
+    (AppLogo, variant "production") and the brand board's logo expressions.
   -->
-  <rect width="240" height="240" rx="50" fill="#d6adf2" />
-  <g fill="none" stroke="#040007" stroke-width="14" stroke-linecap="round">
-    <polyline points="43.55 93.61 64.69 81.41 36.48 108.04 79.67 83.11 35.93 122.88 91.58 90.74 38.9 132.69 97.66 98.76 42.44 138.88 100.43 105.4 46.9 143.83 101.97 112.04 55.08 149.51 101.83 122.52 73.01 152.43 94.14 140.23" />
-    <polyline points="145.65 93.61 166.79 81.41 140.83 101.52 175.58 81.46 138.3 109.53 183.18 83.63 137.55 117.43 189.67 87.33 139.67 129.39 197.88 95.78 142.92 136.32 201.52 102.48 149.03 143.86 204.07 112.08 159.14 150.37 203.51 124.75 169.28 152.61 199.82 134.98" />
+  <defs>
+    <linearGradient id="favicon-glyph" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4a9dff" />
+      <stop offset="0.55" stop-color="#2f7bff" />
+      <stop offset="1" stop-color="#41c9ff" />
+    </linearGradient>
+  </defs>
+  <rect width="240" height="240" rx="50" fill="#0c1730" />
+  <path
+    fill-rule="evenodd"
+    fill="url(#favicon-glyph)"
+    d="M113.8 47.8 A13 13 0 0 1 126.2 47.8 L195.4 183.2 A13 13 0 0 1 184.1 196 L55.9 196 A13 13 0 0 1 44.6 183.2 Z M120 114 L139.2 189.4 A6.5 6.5 0 0 1 132.9 196 L107.1 196 A6.5 6.5 0 0 1 100.8 189.4 Z"
+  />
+  <g fill="none" stroke="#ffffff" stroke-width="18" stroke-linecap="round">
+    <path d="M89 112 Q97 121 105 112" />
+    <path d="M135 112 Q143 121 151 112" />
   </g>
 </svg>
