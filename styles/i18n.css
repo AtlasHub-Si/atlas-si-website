@@ -1,0 +1,65 @@
+/*
+ * Styles introduced by the AtlasBot i18n layer: the header language switcher
+ * and the "this article is available in English" notice on localized pages.
+ * Visual language follows the landing button system in landing.css.
+ */
+
+/* --- Header language switcher ------------------------------------------ */
+
+.landing-lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px;
+  border-radius: 999px;
+  border: 1px solid var(--openbot-border-soft, rgba(255, 255, 255, 0.12));
+  background: var(--openbot-bg-raised, rgba(255, 255, 255, 0.04));
+}
+
+.landing-lang-link {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--openbot-text-secondary);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  padding: 6px 9px;
+  border-radius: 999px;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    color 160ms ease,
+    background-color 160ms ease;
+}
+
+.landing-lang-link:hover {
+  color: var(--openbot-text-primary);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.landing-lang-link[aria-current="true"] {
+  color: var(--openbot-text-primary);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Hide the switcher on small screens like the rest of the header nav. */
+@media (max-width: 719px) {
+  .landing-lang {
+    display: none;
+  }
+}
+
+/* --- Localized-content notice ------------------------------------------- */
+
+.post-lang-notice {
+  margin: 0 0 1.5em;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: var(--openbot-text-secondary);
+  font-size: 14px;
+  line-height: 1.5;
+}

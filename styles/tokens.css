@@ -1,137 +1,137 @@
 /*
  * Design tokens ported 1:1 from openbot.run/packages/brand/src/tokens.css
- * (the always-dark palette) and logo.css (the animated OpenBot mark).
+ * (the always-dark palette) and logo.css (the animated AtlasBot mark).
  */
 
 :root {
   /* Grouped sheet surfaces. */
-  --openbot-bg-sheet: #121212;
-  --openbot-bg-grouped: #212121;
-  --openbot-text-grouped-secondary: #96969b;
-  --openbot-border-grouped: #333335;
+  --atlasbot-bg-sheet: #121212;
+  --atlasbot-bg-grouped: #212121;
+  --atlasbot-text-grouped-secondary: #96969b;
+  --atlasbot-border-grouped: #333335;
 
   /* Neutral system. */
-  --openbot-bg-canvas: #1a1a1a;
-  --openbot-bg-canvas-clear: rgba(26, 26, 26, 0);
-  --openbot-bg-sidebar: #1a1a1a;
-  --openbot-bg-surface: #212121;
-  --openbot-bg-surface-raised: #242424;
-  --openbot-bg-control: #212121;
-  --openbot-bg-control-hover: #242424;
-  --openbot-bg-overlay: rgba(26, 26, 26, 0.92);
-  --openbot-bg-glass: rgba(33, 33, 33, 0.76);
+  --atlasbot-bg-canvas: #1a1a1a;
+  --atlasbot-bg-canvas-clear: rgba(26, 26, 26, 0);
+  --atlasbot-bg-sidebar: #1a1a1a;
+  --atlasbot-bg-surface: #212121;
+  --atlasbot-bg-surface-raised: #242424;
+  --atlasbot-bg-control: #212121;
+  --atlasbot-bg-control-hover: #242424;
+  --atlasbot-bg-overlay: rgba(26, 26, 26, 0.92);
+  --atlasbot-bg-glass: rgba(33, 33, 33, 0.76);
 
   /* Landing glass surfaces. */
-  --openbot-glass-surface: rgba(255, 255, 255, 0.07);
-  --openbot-glass-surface-hover: rgba(255, 255, 255, 0.11);
-  --openbot-glass-border: rgba(255, 255, 255, 0.18);
-  --openbot-glass-highlight: rgba(255, 255, 255, 0.12);
-  --openbot-glass-shadow: rgba(0, 0, 0, 0.28);
-  --openbot-hero-grid-line: rgba(214, 173, 242, 0.09);
+  --atlasbot-glass-surface: rgba(255, 255, 255, 0.07);
+  --atlasbot-glass-surface-hover: rgba(255, 255, 255, 0.11);
+  --atlasbot-glass-border: rgba(255, 255, 255, 0.18);
+  --atlasbot-glass-highlight: rgba(255, 255, 255, 0.12);
+  --atlasbot-glass-shadow: rgba(0, 0, 0, 0.28);
+  --atlasbot-hero-grid-line: rgba(214, 173, 242, 0.09);
 
   /* The "$0" price figure: a dark glass glyph lit by one iridescent band. */
-  --openbot-price-metal-high: #4c4c4c;
-  --openbot-price-metal-core: #1f1f1f;
-  --openbot-price-metal-low: #343434;
-  --openbot-price-sheen-cool: rgba(150, 196, 255, 0.92);
-  --openbot-price-sheen-light: rgba(240, 244, 250, 0.98);
-  --openbot-price-sheen-warm: rgba(255, 184, 132, 0.94);
-  --openbot-price-sheen-cool-soft: rgba(150, 196, 255, 0.26);
-  --openbot-price-sheen-warm-soft: rgba(255, 184, 132, 0.28);
-  --openbot-price-sheen-cool-clear: rgba(150, 196, 255, 0);
-  --openbot-price-sheen-warm-clear: rgba(255, 184, 132, 0);
-  --openbot-price-rim: rgba(255, 255, 255, 0.28);
-  --openbot-price-rim-under: rgba(255, 255, 255, 0.1);
-  --openbot-price-glow: rgba(180, 200, 255, 0.22);
+  --atlasbot-price-metal-high: #4c4c4c;
+  --atlasbot-price-metal-core: #1f1f1f;
+  --atlasbot-price-metal-low: #343434;
+  --atlasbot-price-sheen-cool: rgba(150, 196, 255, 0.92);
+  --atlasbot-price-sheen-light: rgba(240, 244, 250, 0.98);
+  --atlasbot-price-sheen-warm: rgba(255, 184, 132, 0.94);
+  --atlasbot-price-sheen-cool-soft: rgba(150, 196, 255, 0.26);
+  --atlasbot-price-sheen-warm-soft: rgba(255, 184, 132, 0.28);
+  --atlasbot-price-sheen-cool-clear: rgba(150, 196, 255, 0);
+  --atlasbot-price-sheen-warm-clear: rgba(255, 184, 132, 0);
+  --atlasbot-price-rim: rgba(255, 255, 255, 0.28);
+  --atlasbot-price-rim-under: rgba(255, 255, 255, 0.1);
+  --atlasbot-price-glow: rgba(180, 200, 255, 0.22);
 
-  --openbot-transparent: rgba(0, 0, 0, 0);
-  --openbot-mask-solid: #000000;
-  --openbot-border: rgba(255, 255, 255, 0.035);
-  --openbot-border-strong: rgba(255, 255, 255, 0.045);
-  --openbot-border-focus: rgba(0, 124, 247, 0.72);
-  --openbot-text-primary: #ffffff;
-  --openbot-text-on-light: #141414;
-  --openbot-surface-light: #f0f0f0;
-  --openbot-text-secondary: #dcdcdc;
-  --openbot-text-muted: #979797;
-  --openbot-text-dim: #6a6a6a;
-  --openbot-download-card-muted: rgba(20, 20, 20, 0.68);
-  --openbot-download-card-chip: rgba(20, 20, 20, 0.1);
-  --openbot-download-card-border: rgba(20, 20, 20, 0.16);
-  --openbot-download-card-focus: rgba(242, 242, 242, 0.86);
-  --openbot-text-placeholder: #bfbfbf;
+  --atlasbot-transparent: rgba(0, 0, 0, 0);
+  --atlasbot-mask-solid: #000000;
+  --atlasbot-border: rgba(255, 255, 255, 0.035);
+  --atlasbot-border-strong: rgba(255, 255, 255, 0.045);
+  --atlasbot-border-focus: rgba(0, 124, 247, 0.72);
+  --atlasbot-text-primary: #ffffff;
+  --atlasbot-text-on-light: #141414;
+  --atlasbot-surface-light: #f0f0f0;
+  --atlasbot-text-secondary: #dcdcdc;
+  --atlasbot-text-muted: #979797;
+  --atlasbot-text-dim: #6a6a6a;
+  --atlasbot-download-card-muted: rgba(20, 20, 20, 0.68);
+  --atlasbot-download-card-chip: rgba(20, 20, 20, 0.1);
+  --atlasbot-download-card-border: rgba(20, 20, 20, 0.16);
+  --atlasbot-download-card-focus: rgba(242, 242, 242, 0.86);
+  --atlasbot-text-placeholder: #bfbfbf;
 
-  --openbot-accent: #007cf7;
-  --openbot-accent-hover: #1f8fff;
-  --openbot-accent-text: #42a0ff;
-  --openbot-accent-soft: rgba(0, 124, 247, 0.16);
-  --openbot-accent-strong: rgba(0, 124, 247, 0.34);
+  --atlasbot-accent: #007cf7;
+  --atlasbot-accent-hover: #1f8fff;
+  --atlasbot-accent-text: #42a0ff;
+  --atlasbot-accent-soft: rgba(0, 124, 247, 0.16);
+  --atlasbot-accent-strong: rgba(0, 124, 247, 0.34);
 
-  --openbot-provider-codex: var(--openbot-text-primary);
-  --openbot-provider-claude: #d97757;
-  --openbot-provider-grok: var(--openbot-text-primary);
+  --atlasbot-provider-codex: var(--atlasbot-text-primary);
+  --atlasbot-provider-claude: #d97757;
+  --atlasbot-provider-grok: var(--atlasbot-text-primary);
 
-  --openbot-logo-production: #d6adf2;
-  --openbot-logo-eye: #040007;
-  --openbot-logo-dev: #ff9412;
-  --openbot-logo-preview: #31cf76;
+  --atlasbot-logo-production: #d6adf2;
+  --atlasbot-logo-eye: #040007;
+  --atlasbot-logo-dev: #ff9412;
+  --atlasbot-logo-preview: #31cf76;
 
-  --openbot-success: #31cf76;
-  --openbot-warning: #ff9412;
-  --openbot-danger: #fd2f3b;
+  --atlasbot-success: #31cf76;
+  --atlasbot-warning: #ff9412;
+  --atlasbot-danger: #fd2f3b;
 
-  --openbot-font-sans: var(--font-inter, "Inter Variable"), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --openbot-font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, monospace;
+  --atlasbot-font-sans: var(--font-inter, "Inter Variable"), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --atlasbot-font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, monospace;
 
-  --openbot-text-hero: clamp(3rem, 8vw, 6.5rem);
+  --atlasbot-text-hero: clamp(3rem, 8vw, 6.5rem);
 
-  --openbot-weight-regular: 400;
-  --openbot-weight-medium: 500;
-  --openbot-weight-semibold: 600;
+  --atlasbot-weight-regular: 400;
+  --atlasbot-weight-medium: 500;
+  --atlasbot-weight-semibold: 600;
 
-  --openbot-radius-sm: 6px;
-  --openbot-radius-md: 8px;
-  --openbot-radius-lg: 12px;
-  --openbot-radius-card: 14px;
-  --openbot-radius-xl: 20px;
-  --openbot-radius-pill: 999px;
-  --openbot-radius-logo: 20%;
+  --atlasbot-radius-sm: 6px;
+  --atlasbot-radius-md: 8px;
+  --atlasbot-radius-lg: 12px;
+  --atlasbot-radius-card: 14px;
+  --atlasbot-radius-xl: 20px;
+  --atlasbot-radius-pill: 999px;
+  --atlasbot-radius-logo: 20%;
 
-  --openbot-duration-fast: 120ms;
-  --openbot-duration-normal: 160ms;
-  --openbot-duration-slow: 200ms;
-  --openbot-duration-overlay: 240ms;
-  --openbot-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
-  --openbot-ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
-  --openbot-shadow-overlay: 0 12px 32px rgba(0, 0, 0, 0.48);
-  --openbot-focus-ring: 0 0 0 3px var(--openbot-accent-soft);
+  --atlasbot-duration-fast: 120ms;
+  --atlasbot-duration-normal: 160ms;
+  --atlasbot-duration-slow: 200ms;
+  --atlasbot-duration-overlay: 240ms;
+  --atlasbot-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --atlasbot-ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --atlasbot-shadow-overlay: 0 12px 32px rgba(0, 0, 0, 0.48);
+  --atlasbot-focus-ring: 0 0 0 3px var(--atlasbot-accent-soft);
 }
 
 /* Provider colour wiring: a surface writes data-provider and reads the colour. */
 [data-provider] {
-  --openbot-provider-current: currentcolor;
+  --atlasbot-provider-current: currentcolor;
 }
 [data-provider="codex"] {
-  --openbot-provider-current: var(--openbot-provider-codex);
+  --atlasbot-provider-current: var(--atlasbot-provider-codex);
 }
 [data-provider="claude"] {
-  --openbot-provider-current: var(--openbot-provider-claude);
+  --atlasbot-provider-current: var(--atlasbot-provider-claude);
 }
 [data-provider="grok"] {
-  --openbot-provider-current: var(--openbot-provider-grok);
+  --atlasbot-provider-current: var(--atlasbot-provider-grok);
 }
 
 /* ------------------------------------------------------------------ */
-/* The OpenBot mark: a rounded blob with two scribbled eyes. Ported    */
+/* The AtlasBot mark: a rounded blob with two scribbled eyes. Ported    */
 /* from packages/brand/src/logo.css, animations included.             */
 /* ------------------------------------------------------------------ */
 
 .app-logo {
-  --app-logo-background: var(--openbot-logo-production);
+  --app-logo-background: var(--atlasbot-logo-production);
   position: relative;
   display: inline-block;
   overflow: hidden;
-  border-radius: var(--openbot-radius-logo);
+  border-radius: var(--atlasbot-radius-logo);
   isolation: isolate;
 }
 
@@ -140,15 +140,15 @@
 }
 
 .app-logo[data-interactive="true"]:focus-visible {
-  box-shadow: inset 0 0 0 2px var(--openbot-text-primary);
+  box-shadow: inset 0 0 0 2px var(--atlasbot-text-primary);
 }
 
 .app-logo[data-variant="dev"] {
-  --app-logo-background: var(--openbot-logo-dev);
+  --app-logo-background: var(--atlasbot-logo-dev);
 }
 
 .app-logo[data-variant="preview"] {
-  --app-logo-background: var(--openbot-logo-preview);
+  --app-logo-background: var(--atlasbot-logo-preview);
 }
 
 .app-logo-background {
@@ -157,7 +157,7 @@
 
 .app-logo-eye {
   fill: none;
-  stroke: var(--openbot-logo-eye);
+  stroke: var(--atlasbot-logo-eye);
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 9.5px;
@@ -169,7 +169,7 @@
   pointer-events: none;
   transform: translate(var(--app-logo-eye-x, 0%), var(--app-logo-eye-y, 0%));
   transform-origin: center;
-  transition: transform var(--openbot-duration-normal) cubic-bezier(0.23, 1, 0.32, 1);
+  transition: transform var(--atlasbot-duration-normal) cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .app-logo-eye-left {
@@ -247,15 +247,15 @@
   }
 
   22% {
-    fill: var(--openbot-logo-dev);
+    fill: var(--atlasbot-logo-dev);
   }
 
   48% {
-    fill: var(--openbot-logo-preview);
+    fill: var(--atlasbot-logo-preview);
   }
 
   74% {
-    fill: var(--openbot-logo-production);
+    fill: var(--atlasbot-logo-production);
   }
 }
 

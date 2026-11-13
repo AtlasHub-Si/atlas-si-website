@@ -2,16 +2,16 @@
 
 /*
  * The interactive app preview that loads inside the landing's iframe, rebuilt
- * from the real /app-preview page of openbot.run: a small OpenBot team
+ * from the real /app-preview page of openbot.run: a small AtlasBot team
  * workspace scene with the same handshake — it announces
- * `openbot:landing-preview-ready` when mounted and waits for
- * `openbot:landing-preview-start` before it begins to animate.
+ * `atlasbot:landing-preview-ready` when mounted and waits for
+ * `atlasbot:landing-preview-start` before it begins to animate.
  */
 
 import { useEffect, useState } from "react";
 
-const READY_MESSAGE = "openbot:landing-preview-ready";
-const START_MESSAGE = "openbot:landing-preview-start";
+const READY_MESSAGE = "atlasbot:landing-preview-ready";
+const START_MESSAGE = "atlasbot:landing-preview-start";
 
 interface PreviewAgent {
   id: string;
@@ -76,7 +76,7 @@ export default function AppPreviewPage() {
               </g>
             </svg>
           </span>
-          <strong>OpenBot.team</strong>
+          <strong>AtlasBot.team</strong>
         </div>
         <div className="preview-search">Search</div>
         <nav className="preview-agents" aria-label="Agents">

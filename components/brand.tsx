@@ -1,7 +1,7 @@
 "use client";
 
 /*
- * The OpenBot brand marks, ported from packages/brand/src (Solid → React).
+ * The AtlasBot brand marks, ported from packages/brand/src (Solid → React).
  * AppLogo keeps every behaviour of the original: blink, eye tracking,
  * wink on click and the rapid-click party easter egg.
  */
@@ -16,9 +16,16 @@ export interface AppLogoProps {
   animation?: AppLogoAnimation;
   interactive?: boolean;
   className?: string;
+  ariaLabel?: string;
 }
 
-export function AppLogo({ variant = "production", animation = "none", interactive = false, className }: AppLogoProps) {
+export function AppLogo({
+  variant = "production",
+  animation = "none",
+  interactive = false,
+  className,
+  ariaLabel,
+}: AppLogoProps) {
   const logoRef = useRef<SVGSVGElement>(null);
   const [clickReaction, setClickReaction] = useState(false);
   const [easterEgg, setEasterEgg] = useState(false);
@@ -105,7 +112,7 @@ export function AppLogo({ variant = "production", animation = "none", interactiv
       data-variant={variant}
       viewBox="0 0 240 240"
       aria-hidden={interactive ? undefined : "true"}
-      aria-label={interactive ? "Animate OpenBot logo" : undefined}
+      aria-label={interactive ? (ariaLabel ?? "Animate the AtlasBot logo") : undefined}
       role={interactive ? "button" : undefined}
       tabIndex={interactive ? 0 : undefined}
       onClick={handleClick}

@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "openbot-site-next",
+      "name": "atlasbot-site-next",
       "dependencies": {
         "next": "^15.5.4",
         "react": "^19.1.0",

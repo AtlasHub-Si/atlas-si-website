@@ -3,13 +3,16 @@
 /*
  * Collection index page (featured article + card grid + closing CTA), ported
  * from CollectionIndexPage.tsx / FeaturedArticle / ArticleCard /
- * ContentCallToAction. Cards sweep in per index when the grid reveals.
+ * ContentCallToAction. Cards sweep in per index when the grid reveals. Dates
+ * render in the visitor's locale; copy comes from the dictionary.
  */
 
 import Link from "next/link";
 import { useLandingReveal } from "@/components/reveal";
 import { LandingFooter, LandingHeader } from "@/components/chrome";
 import { PostGradient } from "@/components/content/article-media";
+import { formatDate, type Locale } from "@/lib/i18n/config";
+import type { Dictionary } from "@/lib/i18n/dictionaries";
 
 export interface ArticleCardData {
   slug: string;
@@ -27,15 +30,6 @@ export interface CollectionIndexData {
   backLabel: string;
   moreTitle: string;
   articles: readonly ArticleCardData[];
-}
-
-function formatDate(iso: string): string {
-  return new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-    timeZone: "UTC",
-  });
 }
 
 export function RevealGroup({
@@ -66,11 +60,13 @@ export function ArticleCard({
   eyebrow,
   basePath,
   index,
+  locale,
 }: {
   article: ArticleCardData;
   eyebrow: string;
   basePath: string;
   index: number;
+  locale: Locale;
 }) {
   return (
     <Link
@@ -85,7 +81,7 @@ export function ArticleCard({
         </p>
       </div>
       <span className="post-meta post-byline post-card-byline">
-        <time dateTime={article.publishedAt}>{formatDate(article.publishedAt)}</time>
+        <time dateTime={article.publishedAt}>{formatDate(article.publishedAt, locale)}</time>
         <span>{article.author}</span>
       </span>
       <h3 className="post-card-title">{article.title}</h3>
@@ -94,35 +90,40 @@ export function ArticleCard({
   );
 }
 
-export function ContentCallToAction() {
+export function ContentCallToAction({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   return (
     <RevealGroup className="post-cta" slot="cta">
       <h2 className="post-cta-title" id="cta-title" style={{ opacity: undefined }}>
-        Put your agents to work
+        {dict.collections.cta.title}
       </h2>
-      <p className="post-cta-description">
-        OpenBot is free and local-first. Download the app, create your first agent, and give it a job that outlives the
-        chat.
-      </p>
+      <p className="post-cta-description">{dict.collections.cta.description}</p>
       <div className="post-cta-actions">
-        <a className="landing-button landing-button-primary landing-button-lg" href="/#download" data-icon="download">
-          Download OpenBot
+        <a className="landing-button landing-button-primary landing-button-lg" href={`/${locale}/#download`} data-icon="download">
+          {dict.footer.cta}
         </a>
-        <Link className="landing-button landing-button-secondary landing-button-lg" href="/guides/openbot-101">
-          Read OpenBot 101
+        <Link className="landing-button landing-button-secondary landing-button-lg" href={`/${locale}/guides/atlasbot-101`}>
+          {dict.collections.cta.read101}
         </Link>
       </div>
     </RevealGroup>
   );
 }
 
-export function CollectionIndexPage({ collection }: { collection: CollectionIndexData }) {
+export function CollectionIndexPage({
+  collection,
+  locale,
+  dict,
+}: {
+  collection: CollectionIndexData;
+  locale: Locale;
+  dict: Dictionary;
+}) {
   const featured = collection.articles[0];
   const rest = collection.articles.slice(1);
 
   return (
     <div className="landing-page post-index">
-      <LandingHeader />
+      <LandingHeader locale={locale} dict={dict} />
 
       <main className="post-main">
         <div className="post-container">
@@ -137,12 +138,12 @@ export function CollectionIndexPage({ collection }: { collection: CollectionInde
                 </h2>
                 <p className="post-featured-description">{featured.description}</p>
                 <p className="post-meta post-byline">
-                  <time dateTime={featured.publishedAt}>{formatDate(featured.publishedAt)}</time>
+                  <time dateTime={featured.publishedAt}>{formatDate(featured.publishedAt, locale)}</time>
                   <span>{featured.author}</span>
                 </p>
                 <div className="post-featured-action">
                   <span className="landing-button landing-button-secondary landing-button-sm" data-icon="arrow-right">
-                    Read the article
+                    {dict.collections.readArticle}
                   </span>
                 </div>
               </div>
@@ -172,6 +173,7 @@ export function CollectionIndexPage({ collection }: { collection: CollectionInde
                     eyebrow={collection.imageEyebrow}
                     basePath={collection.indexRoute}
                     index={index}
+                    locale={locale}
                   />
                 ))}
               </div>
@@ -180,11 +182,11 @@ export function CollectionIndexPage({ collection }: { collection: CollectionInde
         </div>
 
         <div className="post-container">
-          <ContentCallToAction />
+          <ContentCallToAction locale={locale} dict={dict} />
         </div>
       </main>
 
-      <LandingFooter />
+      <LandingFooter locale={locale} dict={dict} />
     </div>
   );
 }

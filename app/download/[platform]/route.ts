@@ -24,7 +24,7 @@ export async function GET(_request: Request, context: { params: Promise<{ platfo
 
   try {
     const response = await fetch(`https://api.github.com/repos/${REPO}/releases/latest`, {
-      headers: { Accept: "application/vnd.github+json", "User-Agent": "openbot-site" },
+      headers: { Accept: "application/vnd.github+json", "User-Agent": "atlasbot-site" },
       cache: "no-store",
       signal: AbortSignal.timeout(8000),
     });

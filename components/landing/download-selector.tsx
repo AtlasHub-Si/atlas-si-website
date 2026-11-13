@@ -2,20 +2,17 @@
 
 /*
  * The hero download split-button, ported from HeroDownloadSelector.tsx:
- * platform detection, dropdown menu, full keyboard navigation.
+ * platform detection, dropdown menu, full keyboard navigation. Labels come
+ * from the locale dictionary.
  */
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { PlatformLogo } from "@/components/brand";
 import { LandingIcon } from "@/components/icons";
-import {
-  DOWNLOAD_PLATFORMS,
-  DOWNLOAD_PLATFORM_ORDER,
-  detectDownloadPlatform,
-  type PlatformLogoVariant,
-} from "@/lib/site";
+import { DOWNLOAD_PLATFORMS, DOWNLOAD_PLATFORM_ORDER, detectDownloadPlatform, type PlatformLogoVariant } from "@/lib/site";
+import type { Dictionary } from "@/lib/i18n/dictionaries";
 
-export function HeroDownloadSelector() {
+export function HeroDownloadSelector({ dict }: { dict: Dictionary }) {
   const [platform, setPlatform] = useState<PlatformLogoVariant>("macos");
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
@@ -100,19 +97,19 @@ export function HeroDownloadSelector() {
         {current.available && current.href ? (
           <a className="landing-download-primary" href={current.href} data-state="available">
             <PlatformLogo platform={platform} />
-            {current.action}
+            {dict.download.actions[platform]}
           </a>
         ) : (
           <span className="landing-download-primary" data-state="coming-soon" aria-disabled="true">
             <PlatformLogo platform={platform} />
-            {current.action}
+            {dict.download.actions[platform]}
           </span>
         )}
         <button
           ref={triggerRef}
           className="landing-download-trigger"
           type="button"
-          aria-label="Choose download platform"
+          aria-label={dict.download.choosePlatform}
           aria-haspopup="menu"
           aria-expanded={open ? "true" : "false"}
           onClick={() => (open ? closeMenu() : openMenu())}
@@ -122,7 +119,7 @@ export function HeroDownloadSelector() {
       </div>
 
       {open && (
-        <div className="landing-download-menu" role="menu" aria-label="Download platforms">
+        <div className="landing-download-menu" role="menu" aria-label={dict.download.menuAria}>
           {DOWNLOAD_PLATFORM_ORDER.map((menuPlatform) => {
             const details = DOWNLOAD_PLATFORMS[menuPlatform];
             return (
@@ -137,7 +134,9 @@ export function HeroDownloadSelector() {
               >
                 <PlatformLogo platform={menuPlatform} />
                 <span>{details.label}</span>
-                <small>{details.status}</small>
+                <small>
+                  {details.status === "available" ? dict.download.statusAvailable : dict.download.statusComingSoon}
+                </small>
               </a>
             );
           })}

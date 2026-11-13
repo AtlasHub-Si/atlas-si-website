@@ -4,11 +4,15 @@
  * The plugin grid with category filter switches, ported from
  * PluginsIndexPage.tsx: pressed filter fills like a primary button, cards
  * sweep in per index, and the mark sits straight on the card gradient.
+ * Category names and chrome copy come from the locale dictionary; plugin
+ * descriptions stay in English (catalog data).
  */
 
 import { useMemo, useState } from "react";
 import { useLandingReveal } from "@/components/reveal";
-import { SKILL_CATEGORY_LABELS, pluginTagFilters } from "@/lib/plugins";
+import { pluginTagFilters } from "@/lib/plugins";
+import { formatLongDate, type Locale } from "@/lib/i18n/config";
+import type { CategoryKey, Dictionary } from "@/lib/i18n/dictionaries";
 
 export interface PluginCardData {
   slug: string;
@@ -49,7 +53,17 @@ function PluginLogo({ plugin }: { plugin: PluginCardData }) {
   );
 }
 
-export function PluginsIndex({ plugins, updatedAt }: { plugins: PluginCardData[]; updatedAt: string }) {
+export function PluginsIndex({
+  plugins,
+  updatedAt,
+  locale,
+  dict,
+}: {
+  plugins: PluginCardData[];
+  updatedAt: string;
+  locale: Locale;
+  dict: Dictionary;
+}) {
   const [active, setActive] = useState<string | undefined>(undefined);
   const { ref, revealed } = useLandingReveal<HTMLElement>({ rootMargin: "0px" });
 
@@ -61,7 +75,7 @@ export function PluginsIndex({ plugins, updatedAt }: { plugins: PluginCardData[]
 
   return (
     <>
-      <div className="plugin-filters" role="group" aria-label="Filter plugins by category">
+      <div className="plugin-filters" role="group" aria-label={dict.plugins.filtersAria}>
         {tags.map((tag) => (
           <button
             key={tag}
@@ -70,14 +84,14 @@ export function PluginsIndex({ plugins, updatedAt }: { plugins: PluginCardData[]
             aria-pressed={active === tag ? "true" : "false"}
             onClick={() => setActive(active === tag ? undefined : tag)}
           >
-            {SKILL_CATEGORY_LABELS[tag] ?? tag}
+            {dict.plugins.categories[tag as CategoryKey] ?? tag}
           </button>
         ))}
       </div>
 
       <section ref={ref} className="plugin-grid-section" data-revealed={revealed ? "true" : "false"} aria-label="Plugins">
         {visible.length === 0 ? (
-          <p className="plugin-empty">No plugins in this category yet.</p>
+          <p className="plugin-empty">{dict.plugins.empty}</p>
         ) : (
           <div className="plugin-grid">
             {visible.map((plugin, index) => (
@@ -111,15 +125,15 @@ export function PluginsIndex({ plugins, updatedAt }: { plugins: PluginCardData[]
                   <span className="plugin-card-tagline">{plugin.tagline}</span>
                 </div>
                 <div className="plugin-card-tags">
-                  <span className="plugin-tag">{SKILL_CATEGORY_LABELS[plugin.category] ?? plugin.category}</span>
-                  {plugin.featured && <span className="plugin-tag">Featured</span>}
+                  <span className="plugin-tag">{dict.plugins.categories[plugin.category as CategoryKey] ?? plugin.category}</span>
+                  {plugin.featured && <span className="plugin-tag">{dict.plugins.featured}</span>}
                 </div>
               </a>
             ))}
           </div>
         )}
         <p className="plugin-card-meta" style={{ marginTop: 24 }}>
-          Catalog updated {new Date(updatedAt).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}
+          {dict.plugins.catalogUpdated} {formatLongDate(updatedAt, locale)}
         </p>
       </section>
     </>

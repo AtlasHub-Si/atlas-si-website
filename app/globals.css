@@ -2,6 +2,7 @@
 @import "../styles/landing.css";
 @import "../styles/post.css";
 @import "../styles/preview.css";
+@import "../styles/i18n.css";
 
 /* Minimal base reset (the original relies on Tailwind preflight). */
 *,
@@ -13,16 +14,16 @@
 html {
   min-width: 320px;
   scroll-behavior: smooth;
-  background: var(--openbot-bg-canvas);
+  background: var(--atlasbot-bg-canvas);
 }
 
 body {
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
-  background: var(--openbot-bg-canvas);
-  color: var(--openbot-text-primary);
-  font-family: var(--openbot-font-sans);
+  background: var(--atlasbot-bg-canvas);
+  color: var(--atlasbot-text-primary);
+  font-family: var(--atlasbot-font-sans);
   font-synthesis: none;
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;

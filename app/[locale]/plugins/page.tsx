@@ -1,13 +1,30 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { LandingFooter, LandingHeader } from "@/components/chrome";
 import { PluginsIndex } from "@/components/content/plugins-index";
 import catalogJson from "@/content/plugin-catalog.json";
-import { PLUGINS_TITLE, PLUGINS_DESCRIPTION } from "@/lib/plugins";
+import { alternateLanguages, isLocale, localePath, locales } from "@/lib/i18n/config";
+import { getDictionary } from "@/lib/i18n/dictionaries";
 
-export const metadata: Metadata = {
-  title: PLUGINS_TITLE,
-  description: PLUGINS_DESCRIPTION,
-};
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isLocale(locale)) return {};
+  const dict = getDictionary(locale);
+  return {
+    title: dict.plugins.title,
+    description: dict.plugins.description,
+    alternates: {
+      canonical: localePath(locale, "/plugins"),
+      languages: alternateLanguages(locale, "/plugins"),
+    },
+  };
+}
 
 interface JsonPrompt {
   id: string;
@@ -39,7 +56,11 @@ const { catalogIndex, catalogDetails } = catalogJson as unknown as {
   catalogDetails: Record<string, JsonDetail>;
 };
 
-export default function PluginsPage() {
+export default async function PluginsRoute({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  if (!isLocale(locale)) notFound();
+  const dict = getDictionary(locale);
+
   const plugins = catalogIndex.plugins
     .flatMap((entry) => {
       const detail = catalogDetails[entry.slug];
@@ -61,19 +82,19 @@ export default function PluginsPage() {
 
   return (
     <div className="landing-page post-index">
-      <LandingHeader />
+      <LandingHeader locale={locale} dict={dict} />
       <main className="post-main">
         <div className="post-container">
           <div className="plugin-intro" data-enter="post-copy">
-            <h1 className="plugin-intro-title">Plugins — OpenBot</h1>
+            <h1 className="plugin-intro-title">{dict.plugins.title}</h1>
             <p className="post-article-standfirst" style={{ marginTop: 14 }}>
-              {PLUGINS_DESCRIPTION}
+              {dict.plugins.description}
             </p>
           </div>
-          <PluginsIndex plugins={plugins} updatedAt={catalogIndex.updatedAt} />
+          <PluginsIndex plugins={plugins} updatedAt={catalogIndex.updatedAt} locale={locale} dict={dict} />
         </div>
       </main>
-      <LandingFooter />
+      <LandingFooter locale={locale} dict={dict} />
     </div>
   );
 }

@@ -11,8 +11,8 @@
   overflow: hidden;
   padding: 96px 24px 48px;
   background:
-    radial-gradient(circle at 50% 42%, var(--openbot-accent-strong), var(--openbot-transparent) 38%),
-    var(--openbot-bg-canvas);
+    radial-gradient(circle at 50% 42%, var(--atlasbot-accent-strong), var(--atlasbot-transparent) 38%),
+    var(--atlasbot-bg-canvas);
 }
 
 .join-page-brand {
@@ -25,12 +25,12 @@
   width: min(100%, 520px);
   display: grid;
   justify-items: center;
-  border: 1px solid var(--openbot-border-strong);
+  border: 1px solid var(--atlasbot-border-strong);
   border-radius: 24px;
-  background: var(--openbot-bg-sidebar);
+  background: var(--atlasbot-bg-sidebar);
   padding: clamp(32px, 7vw, 56px);
   text-align: center;
-  box-shadow: 0 24px 80px var(--openbot-glass-shadow);
+  box-shadow: 0 24px 80px var(--atlasbot-glass-shadow);
 }
 
 .join-card-signal {
@@ -44,15 +44,15 @@
 
 .join-card-signal span {
   height: 1px;
-  background: var(--openbot-border-strong);
+  background: var(--atlasbot-border-strong);
 }
 
 .join-card-signal i {
   width: 7px;
   height: 7px;
-  border-radius: var(--openbot-radius-pill);
-  background: var(--openbot-logo-production);
-  box-shadow: 0 0 0 6px var(--openbot-accent-strong);
+  border-radius: var(--atlasbot-radius-pill);
+  background: var(--atlasbot-logo-production);
+  box-shadow: 0 0 0 6px var(--atlasbot-accent-strong);
 }
 
 .join-card-logo {
@@ -63,7 +63,7 @@
 
 .join-card-eyebrow {
   margin: 0 0 10px;
-  color: var(--openbot-logo-production);
+  color: var(--atlasbot-logo-production);
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -80,7 +80,7 @@
 .join-card-copy {
   max-width: 420px;
   margin: 18px 0 0;
-  color: var(--openbot-text-secondary);
+  color: var(--atlasbot-text-secondary);
   font-size: 16px;
   line-height: 1.55;
 }
@@ -99,12 +99,12 @@
 
 .join-card-error {
   margin: 26px 0 0;
-  color: var(--openbot-text-primary);
+  color: var(--atlasbot-text-primary);
 }
 
 .join-card-note {
   margin: 24px 0 0;
-  color: var(--openbot-text-muted);
+  color: var(--atlasbot-text-muted);
   font-size: 12px;
   line-height: 1.5;
 }
@@ -137,7 +137,7 @@
 
 .post-meta {
   display: block;
-  color: var(--openbot-text-dim);
+  color: var(--atlasbot-text-dim);
   font-size: 13px;
   line-height: 1.4;
 }
@@ -164,8 +164,8 @@
 
 .post-featured-eyebrow {
   margin: 0;
-  color: var(--openbot-logo-production);
-  font-family: var(--openbot-font-mono);
+  color: var(--atlasbot-logo-production);
+  font-family: var(--atlasbot-font-mono);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -189,7 +189,7 @@
 .post-featured-description {
   max-width: 46ch;
   margin: 16px 0 0;
-  color: var(--openbot-text-muted);
+  color: var(--atlasbot-text-muted);
   font-size: 15px;
   line-height: 1.6;
 }
@@ -216,7 +216,7 @@
   display: grid;
   place-items: center;
   overflow: hidden;
-  border: 1px solid var(--openbot-border-strong);
+  border: 1px solid var(--atlasbot-border-strong);
   pointer-events: none;
 }
 
@@ -287,7 +287,7 @@
   position: relative;
   pointer-events: none;
   padding: clamp(18px, 2.6vw, 40px);
-  color: var(--openbot-text-primary);
+  color: var(--atlasbot-text-primary);
   font-weight: 600;
   letter-spacing: -0.03em;
   line-height: 1.12;
@@ -322,7 +322,7 @@
 
 .post-card:focus-visible {
   border-radius: 24px;
-  outline: 3px solid var(--openbot-border-focus);
+  outline: 3px solid var(--atlasbot-border-focus);
   outline-offset: 4px;
 }
 
@@ -336,12 +336,12 @@
 
 .post-card-title {
   margin: 6px 0 0;
-  color: var(--openbot-text-secondary);
+  color: var(--atlasbot-text-secondary);
   font-size: 16px;
   font-weight: 500;
   letter-spacing: -0.02em;
   line-height: 1.35;
-  transition: color var(--openbot-duration-normal) ease;
+  transition: color var(--atlasbot-duration-normal) ease;
 }
 
 .post-grid-section[data-revealed="false"] .post-card,
@@ -386,8 +386,8 @@
 
 .post-article-eyebrow {
   margin: 0;
-  color: var(--openbot-logo-production);
-  font-family: var(--openbot-font-mono);
+  color: var(--atlasbot-logo-production);
+  font-family: var(--atlasbot-font-mono);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -398,10 +398,10 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: var(--openbot-text-muted);
+  color: var(--atlasbot-text-muted);
   font-size: 13px;
   text-decoration: none;
-  transition: color var(--openbot-duration-normal) ease;
+  transition: color var(--atlasbot-duration-normal) ease;
 }
 
 .post-article-back::before {
@@ -419,7 +419,7 @@
 
 .post-article-standfirst {
   margin: 18px 0 0;
-  color: var(--openbot-text-secondary);
+  color: var(--atlasbot-text-secondary);
   font-size: clamp(16px, 1.6vw, 19px);
   line-height: 1.55;
 }
@@ -430,7 +430,7 @@
 
 .post-prose {
   margin-top: clamp(32px, 4vw, 48px);
-  color: var(--openbot-text-secondary);
+  color: var(--atlasbot-text-secondary);
   font-size: 17px;
   line-height: 1.7;
 }
@@ -441,7 +441,7 @@
 
 .post-prose h2 {
   margin: 40px 0 14px;
-  color: var(--openbot-text-primary);
+  color: var(--atlasbot-text-primary);
   font-size: 26px;
   font-weight: 600;
   letter-spacing: -0.03em;
@@ -450,7 +450,7 @@
 
 .post-prose h3 {
   margin: 32px 0 12px;
-  color: var(--openbot-text-primary);
+  color: var(--atlasbot-text-primary);
   font-size: 20px;
   font-weight: 600;
   letter-spacing: -0.02em;
@@ -476,12 +476,12 @@
 }
 
 .post-prose strong {
-  color: var(--openbot-text-primary);
+  color: var(--atlasbot-text-primary);
   font-weight: 600;
 }
 
 .post-prose a {
-  color: var(--openbot-accent-text);
+  color: var(--atlasbot-accent-text);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -489,8 +489,8 @@
 .post-prose code {
   padding: 2px 6px;
   border-radius: 6px;
-  background: var(--openbot-bg-surface);
-  font-family: var(--openbot-font-mono);
+  background: var(--atlasbot-bg-surface);
+  font-family: var(--atlasbot-font-mono);
   font-size: 0.9em;
 }
 
@@ -498,11 +498,11 @@
   margin: 0 0 24px;
   padding: 16px 18px;
   overflow-x: auto;
-  border: 1px solid var(--openbot-border-strong);
-  border-radius: var(--openbot-radius-lg);
-  background: var(--openbot-bg-surface);
-  color: var(--openbot-text-primary);
-  font-family: var(--openbot-font-mono);
+  border: 1px solid var(--atlasbot-border-strong);
+  border-radius: var(--atlasbot-radius-lg);
+  background: var(--atlasbot-bg-surface);
+  color: var(--atlasbot-text-primary);
+  font-family: var(--atlasbot-font-mono);
   font-size: 14px;
   line-height: 1.6;
 }
@@ -516,19 +516,19 @@
 
 .post-prose kbd {
   padding: 2px 7px;
-  border: 1px solid var(--openbot-border-strong);
+  border: 1px solid var(--atlasbot-border-strong);
   border-bottom-width: 2px;
-  border-radius: var(--openbot-radius-sm);
-  background: var(--openbot-bg-surface);
-  color: var(--openbot-text-primary);
-  font-family: var(--openbot-font-mono);
+  border-radius: var(--atlasbot-radius-sm);
+  background: var(--atlasbot-bg-surface);
+  color: var(--atlasbot-text-primary);
+  font-family: var(--atlasbot-font-mono);
   font-size: 0.85em;
 }
 
 .post-prose hr {
   margin: 40px 0;
   border: 0;
-  border-top: 1px solid var(--openbot-border-strong);
+  border-top: 1px solid var(--atlasbot-border-strong);
 }
 
 .post-prose table {
@@ -541,21 +541,21 @@
 .post-prose th,
 .post-prose td {
   padding: 10px 12px;
-  border-bottom: 1px solid var(--openbot-border-strong);
+  border-bottom: 1px solid var(--atlasbot-border-strong);
   text-align: left;
   vertical-align: top;
 }
 
 .post-prose th {
-  color: var(--openbot-text-primary);
+  color: var(--atlasbot-text-primary);
   font-weight: 600;
 }
 
 .post-prose blockquote {
   margin: 24px 0;
   padding-left: 18px;
-  border-left: 2px solid var(--openbot-border-strong);
-  color: var(--openbot-text-muted);
+  border-left: 2px solid var(--atlasbot-border-strong);
+  color: var(--atlasbot-text-muted);
 }
 
 .post-prose > :last-child {
@@ -580,9 +580,9 @@
   display: block;
   width: 100%;
   height: auto;
-  border: 1px solid var(--openbot-border-strong);
-  border-radius: var(--openbot-radius-card);
-  background: var(--openbot-bg-surface);
+  border: 1px solid var(--atlasbot-border-strong);
+  border-radius: var(--atlasbot-radius-card);
+  background: var(--atlasbot-bg-surface);
 }
 
 .post-mount {
@@ -590,8 +590,8 @@
   isolation: isolate;
   display: grid;
   overflow: hidden;
-  border: 1px solid var(--openbot-border-strong);
-  border-radius: var(--openbot-radius-card);
+  border: 1px solid var(--atlasbot-border-strong);
+  border-radius: var(--atlasbot-radius-card);
   padding: clamp(14px, 4.5%, 52px);
 }
 
@@ -610,14 +610,14 @@
 }
 
 .post-mount .post-media {
-  border-color: var(--openbot-border);
+  border-color: var(--atlasbot-border);
   border-radius: 9px;
-  box-shadow: var(--openbot-shadow-overlay);
+  box-shadow: var(--atlasbot-shadow-overlay);
 }
 
 .post-figure-caption {
   margin-top: 12px;
-  color: var(--openbot-text-muted);
+  color: var(--atlasbot-text-muted);
   font-size: 14px;
   line-height: 1.5;
 }
@@ -630,21 +630,21 @@
   align-items: center;
   gap: 7px;
   padding: 7px 13px 7px 11px;
-  border: 1px solid var(--openbot-border-strong);
-  border-radius: var(--openbot-radius-pill);
-  background: var(--openbot-bg-overlay);
-  color: var(--openbot-text-primary);
+  border: 1px solid var(--atlasbot-border-strong);
+  border-radius: var(--atlasbot-radius-pill);
+  background: var(--atlasbot-bg-overlay);
+  color: var(--atlasbot-text-primary);
   font-family: inherit;
   font-size: 12px;
   font-weight: 500;
   line-height: 1;
   cursor: pointer;
-  transition: background-color var(--openbot-duration-normal) ease;
+  transition: background-color var(--atlasbot-duration-normal) ease;
 }
 
 .post-media-toggle:focus-visible {
   outline: 0;
-  box-shadow: 0 0 0 3px var(--openbot-accent-strong);
+  box-shadow: 0 0 0 3px var(--atlasbot-accent-strong);
 }
 
 .post-media-toggle-icon {
@@ -681,7 +681,7 @@
 .post-cta {
   margin-top: clamp(64px, 8vw, 104px);
   padding-top: clamp(48px, 6vw, 80px);
-  border-top: 1px solid var(--openbot-border);
+  border-top: 1px solid var(--atlasbot-border);
   text-align: center;
 }
 
@@ -697,7 +697,7 @@
 .post-cta-description {
   max-width: 580px;
   margin: 20px auto 0;
-  color: var(--openbot-text-secondary);
+  color: var(--atlasbot-text-secondary);
   font-size: clamp(16px, 1.8vw, 19px);
   line-height: 1.55;
   text-wrap: pretty;
@@ -762,7 +762,7 @@
   .post-featured-art-title,
   .post-card-art-title {
     transform: scale(1);
-    transition: transform var(--openbot-duration-normal) var(--openbot-ease-out);
+    transition: transform var(--atlasbot-duration-normal) var(--atlasbot-ease-out);
   }
 
   .post-featured:hover .post-featured-art-title,
@@ -771,7 +771,7 @@
   }
 
   .post-card:hover .post-card-title {
-    color: var(--openbot-text-primary);
+    color: var(--atlasbot-text-primary);
   }
 }
 
@@ -791,7 +791,7 @@
 
 .plugin-intro-title {
   margin: 0;
-  color: var(--openbot-text-primary);
+  color: var(--atlasbot-text-primary);
   font-size: clamp(30px, 3.4vw, 40px);
   font-weight: 600;
   letter-spacing: -0.03em;
@@ -817,14 +817,14 @@
 
 .plugin-card:focus-visible {
   border-radius: 24px;
-  outline: 3px solid var(--openbot-border-focus);
+  outline: 3px solid var(--atlasbot-border-focus);
   outline-offset: 4px;
 }
 
 .plugin-logo {
   position: relative;
   pointer-events: none;
-  color: var(--openbot-text-primary);
+  color: var(--atlasbot-text-primary);
   filter: drop-shadow(0 1px 6px rgb(0 0 0 / 35%));
 }
 
@@ -841,7 +841,7 @@
 .plugin-card-icon {
   position: relative;
   height: 40%;
-  border-radius: var(--openbot-radius-logo);
+  border-radius: var(--atlasbot-radius-logo);
   box-shadow: 0 2px 12px rgb(0 0 0 / 35%);
   pointer-events: none;
 }
@@ -865,7 +865,7 @@
 
 .plugin-card-meta {
   margin-top: 14px;
-  color: var(--openbot-text-dim);
+  color: var(--atlasbot-text-dim);
   font-size: 12px;
 }
 
@@ -904,11 +904,11 @@
 }
 
 .plugin-tag {
-  border: 1px solid var(--openbot-border-strong);
-  border-radius: var(--openbot-radius-pill);
-  background: var(--openbot-bg-surface);
+  border: 1px solid var(--atlasbot-border-strong);
+  border-radius: var(--atlasbot-radius-pill);
+  background: var(--atlasbot-bg-surface);
   padding: 5px 11px;
-  color: var(--openbot-text-dim);
+  color: var(--atlasbot-text-dim);
   font-size: 12px;
   letter-spacing: 0.02em;
   line-height: 1.2;
@@ -919,11 +919,11 @@
   height: 38px;
   display: inline-flex;
   align-items: center;
-  border: 1px solid var(--openbot-border-strong);
-  border-radius: var(--openbot-radius-pill);
+  border: 1px solid var(--atlasbot-border-strong);
+  border-radius: var(--atlasbot-radius-pill);
   background: transparent;
   padding: 0 17px;
-  color: var(--openbot-text-secondary);
+  color: var(--atlasbot-text-secondary);
   font: inherit;
   font-size: 13px;
   font-weight: 500;
@@ -932,16 +932,16 @@
   white-space: nowrap;
   cursor: pointer;
   transition:
-    border-color var(--openbot-duration-normal) ease,
-    background-color var(--openbot-duration-normal) ease,
-    color var(--openbot-duration-normal) ease,
-    transform var(--openbot-duration-fast) var(--openbot-ease-out);
+    border-color var(--atlasbot-duration-normal) ease,
+    background-color var(--atlasbot-duration-normal) ease,
+    color var(--atlasbot-duration-normal) ease,
+    transform var(--atlasbot-duration-fast) var(--atlasbot-ease-out);
 }
 
 .plugin-tag-button[aria-pressed="true"] {
-  border-color: var(--openbot-surface-light);
-  background: var(--openbot-surface-light);
-  color: var(--openbot-text-on-light);
+  border-color: var(--atlasbot-surface-light);
+  background: var(--atlasbot-surface-light);
+  color: var(--atlasbot-text-on-light);
 }
 
 .plugin-tag-button:active {
@@ -950,12 +950,12 @@
 
 .plugin-tag-button:focus-visible {
   outline: 0;
-  box-shadow: 0 0 0 3px var(--openbot-accent-strong);
+  box-shadow: 0 0 0 3px var(--atlasbot-accent-strong);
 }
 
 .plugin-empty {
   margin: 0;
-  color: var(--openbot-text-dim);
+  color: var(--atlasbot-text-dim);
   font-size: 14px;
 }
 
@@ -965,17 +965,17 @@
 
 .plugin-card-title {
   flex: none;
-  color: var(--openbot-text-secondary);
+  color: var(--atlasbot-text-secondary);
   font-size: 16px;
   font-weight: 500;
   letter-spacing: -0.02em;
   line-height: 1.35;
-  transition: color var(--openbot-duration-normal) ease;
+  transition: color var(--atlasbot-duration-normal) ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .plugin-card:hover .plugin-card-title {
-    color: var(--openbot-text-primary);
+    color: var(--atlasbot-text-primary);
   }
 }
 
@@ -989,7 +989,7 @@
 }
 
 .plugin-prompts-card {
-  border-radius: var(--openbot-radius-lg);
+  border-radius: var(--atlasbot-radius-lg);
   padding: clamp(20px, 3vw, 32px);
   pointer-events: auto;
   display: block;
@@ -1013,10 +1013,10 @@
 
 .plugin-prompts-card li {
   padding: 12px 14px;
-  border: 1px solid var(--openbot-border-strong);
-  border-radius: var(--openbot-radius-md);
-  background: var(--openbot-bg-surface);
-  color: var(--openbot-text-secondary);
+  border: 1px solid var(--atlasbot-border-strong);
+  border-radius: var(--atlasbot-radius-md);
+  background: var(--atlasbot-bg-surface);
+  color: var(--atlasbot-text-secondary);
   font-size: 14px;
   line-height: 1.5;
 }

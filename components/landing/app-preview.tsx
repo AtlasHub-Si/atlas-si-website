@@ -3,17 +3,19 @@
 /*
  * The app preview, ported from LandingAppPreview.tsx: a skeleton with a cold
  * pulse, a late-loaded iframe, the postMessage handshake with /app-preview
- * (ready → reveal → start) and the blur cross-fade between the two.
+ * (ready → reveal → start) and the blur cross-fade between the two. The
+ * scene inside the iframe stays in English (product mock, like the original).
  */
 
 import { useEffect, useRef, useState } from "react";
+import type { Dictionary } from "@/lib/i18n/dictionaries";
 
-const LANDING_PREVIEW_READY_MESSAGE = "openbot:landing-preview-ready";
-const LANDING_PREVIEW_START_MESSAGE = "openbot:landing-preview-start";
+const LANDING_PREVIEW_READY_MESSAGE = "atlasbot:landing-preview-ready";
+const LANDING_PREVIEW_START_MESSAGE = "atlasbot:landing-preview-start";
 const LANDING_PREVIEW_URL = "/app-preview";
 const LANDING_PREVIEW_LOAD_DELAY_MS = 300;
 
-export function LandingAppPreview() {
+export function LandingAppPreview({ dict }: { dict: Dictionary }) {
   const rootRef = useRef<HTMLElement>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [src, setSrc] = useState("");
@@ -83,7 +85,7 @@ export function LandingAppPreview() {
       data-preview-state={started ? "shown" : ready ? "ready" : "idle"}
     >
       <h2 id="app-preview-title" className="landing-visually-hidden">
-        Interactive OpenBot application preview
+        {dict.preview.title}
       </h2>
       <span className="landing-preview-window-controls" aria-hidden="true">
         <i />
@@ -93,13 +95,13 @@ export function LandingAppPreview() {
       <div
         className="landing-preview-placeholder t-skel-skeleton is-pulsing"
         role="status"
-        aria-label="Loading OpenBot preview"
+        aria-label={dict.preview.loading}
       />
       <div className="landing-preview-stage t-skel-content">
         <iframe
           ref={iframeRef}
           src={src || undefined}
-          title="Interactive OpenBot application preview"
+          title={dict.preview.title}
           sandbox="allow-forms allow-same-origin allow-scripts"
         />
       </div>

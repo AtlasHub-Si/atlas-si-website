@@ -5,7 +5,7 @@
  */
 
 import type { ReactNode } from "react";
-import { EXTERNAL_LINK_REL, OPENBOT_LINKS } from "@/lib/site";
+import { EXTERNAL_LINK_REL, ATLASBOT_LINKS } from "@/lib/site";
 
 export const NEWS_AUTHOR = "Norbert Bodziony";
 
@@ -22,18 +22,18 @@ function sorted<T extends { publishedAt: string }>(articles: readonly T[]): T[] 
   return [...articles].sort((a, b) => (a.publishedAt < b.publishedAt ? 1 : a.publishedAt > b.publishedAt ? -1 : 0));
 }
 
-function IntroducingOpenBot() {
+function IntroducingAtlasBot() {
   return (
     <>
       <p>
         Many of us already use an AI tool every day. It might be ChatGPT or Claude on our computers, or an AI search
-        feature in a browser. These models are useful, but they usually work as one assistant at a time. OpenBot is
+        feature in a browser. These models are useful, but they usually work as one assistant at a time. AtlasBot is
         built around a different idea: several agents can work together in one shared space, each with its own role.
       </p>
 
-      <h2>What Is OpenBot?</h2>
+      <h2>What Is AtlasBot?</h2>
       <p>
-        OpenBot is a free, open-source, local-first alternative to Grok Bot. It does not train its own AI model.
+        AtlasBot is a free, open-source, local-first alternative to Grok Bot. It does not train its own AI model.
         Instead, it brings the models you already use into one desktop workspace.
       </p>
       <p>
@@ -46,14 +46,14 @@ function IntroducingOpenBot() {
         forward instead of starting from a blank chat every time.
       </p>
       <p>
-        OpenBot does not replace the models behind the agents. It gives them one place to work together — and alongside
+        AtlasBot does not replace the models behind the agents. It gives them one place to work together — and alongside
         the people on your team.
       </p>
 
       <h2>From Single-Player to Multiplayer</h2>
       <p>
         Many AI tools are built around one person working with one assistant at a time. You open a chat, ask a question,
-        and work with the answer on your own. OpenBot is built around a different idea: people and AI agents can work in
+        and work with the answer on your own. AtlasBot is built around a different idea: people and AI agents can work in
         the same workspace.
       </p>
       <p>
@@ -65,7 +65,7 @@ function IntroducingOpenBot() {
 
       <h2>How It Works</h2>
       <p>
-        Using OpenBot starts with three steps: create an agent, give it a job, and let it keep working in its own
+        Using AtlasBot starts with three steps: create an agent, give it a job, and let it keep working in its own
         workspace and context. You give it a role and instructions, then return to the same conversation instead of
         rebuilding the setup every time.
       </p>
@@ -74,9 +74,9 @@ function IntroducingOpenBot() {
         talk to the agents, see the shared conversations, and exchange files as the task moves forward.
       </p>
 
-      <h2>What Can You Do With OpenBot?</h2>
+      <h2>What Can You Do With AtlasBot?</h2>
       <p>
-        OpenBot is not built around one specific workflow. You can create agents for different kinds of work, including:
+        AtlasBot is not built around one specific workflow. You can create agents for different kinds of work, including:
       </p>
       <ul>
         <li>Research and monitoring</li>
@@ -91,19 +91,19 @@ function IntroducingOpenBot() {
         work between several agents with different roles.
       </p>
 
-      <h2>Why Run OpenBot Locally?</h2>
+      <h2>Why Run AtlasBot Locally?</h2>
       <p>
-        One advantage of running OpenBot locally is that it stays close to your files, tools, and everyday workspace.
+        One advantage of running AtlasBot locally is that it stays close to your files, tools, and everyday workspace.
         You can host it on a Mac mini, leave it running, and access the same space from other devices.
       </p>
       <p>
-        That keeps your agents and projects in one place while still letting you check in from elsewhere. OpenBot&apos;s
+        That keeps your agents and projects in one place while still letting you check in from elsewhere. AtlasBot&apos;s
         source code is public as well, so anyone can inspect the project and contribute to it.
       </p>
 
       <h2>Working With Multiple Agents</h2>
       <p>
-        OpenBot brings the models you already use into one workspace. You can give different agents different roles,
+        AtlasBot brings the models you already use into one workspace. You can give different agents different roles,
         keep their context with the project, and let them pass work to one another instead of starting a new chat for
         every task.
       </p>
@@ -119,7 +119,7 @@ function YourWorkStaysOnYourComputer() {
   return (
     <>
       <p>
-        OpenBot keeps your workspaces, conversations, attachments, browser data and team data on the computer that runs
+        AtlasBot keeps your workspaces, conversations, attachments, browser data and team data on the computer that runs
         it. They go into a SQLite database in your own home directory. There is no copy on our side, because there is no
         place on our side to put one.
       </p>
@@ -128,7 +128,7 @@ function YourWorkStaysOnYourComputer() {
       <p>
         We cannot read your chats. We cannot hand them to anyone who asks us, because we do not hold them. If you delete
         the database, the conversation is gone rather than merely hidden. And the application keeps working when our
-        servers do not: OpenBot runs without an account at all.
+        servers do not: AtlasBot runs without an account at all.
       </p>
       <p>
         It also changes who is responsible for backups. Nothing is uploaded, so nothing is restored for you. That trade
@@ -142,9 +142,9 @@ function YourWorkStaysOnYourComputer() {
         load from the internet. Plugins can still make requests.
       </p>
       <p>
-        The honest version of the promise is narrower than the slogan: OpenBot adds no hop of its own. We wrote down
+        The honest version of the promise is narrower than the slogan: AtlasBot adds no hop of its own. We wrote down
         exactly which data leaves your machine and why in the{" "}
-        <a href={OPENBOT_LINKS.privacy} target="_blank" rel={EXTERNAL_LINK_REL}>
+        <a href={ATLASBOT_LINKS.privacy} target="_blank" rel={EXTERNAL_LINK_REL}>
           privacy notes
         </a>
         .
@@ -175,13 +175,13 @@ function OneAgentManyProviders() {
 
       <h2>What an agent keeps</h2>
       <p>
-        In OpenBot an agent owns three things that outlive any provider it runs on: a workspace on disk, a thread of
+        In AtlasBot an agent owns three things that outlive any provider it runs on: a workspace on disk, a thread of
         everything it has done, and an identity of its own. Point the same agent at{" "}
-        <a href={OPENBOT_LINKS.codex} target="_blank" rel={EXTERNAL_LINK_REL}>
+        <a href={ATLASBOT_LINKS.codex} target="_blank" rel={EXTERNAL_LINK_REL}>
           Codex
         </a>{" "}
         instead of{" "}
-        <a href={OPENBOT_LINKS.claude} target="_blank" rel={EXTERNAL_LINK_REL}>
+        <a href={ATLASBOT_LINKS.claude} target="_blank" rel={EXTERNAL_LINK_REL}>
           Claude Code
         </a>{" "}
         and it is still the same agent, in the same folder, with the same history behind it.
@@ -333,7 +333,7 @@ function RunTheTeamServerYourself() {
   return (
     <>
       <p>
-        OpenBot works with no account at all. Everything that makes the app useful on your own machine — agents,
+        AtlasBot works with no account at all. Everything that makes the app useful on your own machine — agents,
         threads, workspaces, files — is there the moment you open it, and none of it needs us.
       </p>
 
@@ -402,13 +402,13 @@ function WhatGetsRedactedBeforeItLeaves() {
 
 export const NEWS_ARTICLES: readonly ArticleEntry[] = sorted([
   {
-    slug: "introducing-openbot",
-    title: "Introducing OpenBot: A Shared Workspace for AI Agents",
+    slug: "introducing-atlasbot",
+    title: "Introducing AtlasBot: A Shared Workspace for AI Agents",
     description:
-      "Meet OpenBot, a local-first workspace where the AI models you already use can work as a team of agents, alongside you and your coworkers.",
+      "Meet AtlasBot, a local-first workspace where the AI models you already use can work as a team of agents, alongside you and your coworkers.",
     publishedAt: "2026-09-14",
     author: NEWS_AUTHOR,
-    body: IntroducingOpenBot,
+    body: IntroducingAtlasBot,
   },
   {
     slug: "your-work-stays-on-your-computer",
@@ -480,11 +480,11 @@ export const NEWS_COLLECTION = {
   indexRoute: "/news",
   articleRoute: "/news",
   name: "News",
-  indexTitle: "News — OpenBot",
+  indexTitle: "News — AtlasBot",
   indexDescription:
-    "Notes on building OpenBot: local-first storage, agents that outlive their provider, and how the pieces fit together.",
-  imageEyebrow: "OPENBOT · NEWS",
+    "Notes on building AtlasBot: local-first storage, agents that outlive their provider, and how the pieces fit together.",
+  imageEyebrow: "ATLASBOT · NEWS",
   backLabel: "All news",
-  moreTitle: "More from OpenBot",
+  moreTitle: "More from AtlasBot",
   articles: NEWS_ARTICLES,
 } as const;

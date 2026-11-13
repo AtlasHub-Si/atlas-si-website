@@ -1,5 +1,5 @@
 {
-  "name": "openbot-site-next",
+  "name": "atlasbot-site-next",
   "version": "0.19.0",
   "description": "The openbot.run website rebuilt in Next.js: landing, news, guides, plugins, join and app preview, with the original animations.",
   "private": true,

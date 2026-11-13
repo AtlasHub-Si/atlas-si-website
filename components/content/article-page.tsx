@@ -3,13 +3,17 @@
 /*
  * Article page chrome, ported from the article route of the original:
  * back link, eyebrow, title, standfirst, byline, artwork, prose, "more" cards
- * and the closing CTA — with the same data-enter motion sequence.
+ * and the closing CTA — with the same data-enter motion sequence. Dates
+ * render in the visitor's locale; when a localized article body is not yet
+ * translated, bodyNotice explains that above the prose.
  */
 
 import Link from "next/link";
 import { LandingFooter, LandingHeader } from "@/components/chrome";
 import { PostGradient } from "@/components/content/article-media";
 import { ArticleCard, ContentCallToAction, RevealGroup, type ArticleCardData } from "@/components/content/collection-page";
+import { formatDate, type Locale } from "@/lib/i18n/config";
+import type { Dictionary } from "@/lib/i18n/dictionaries";
 
 export interface ArticlePageData {
   slug: string;
@@ -19,29 +23,26 @@ export interface ArticlePageData {
   author: string;
 }
 
-function formatDate(iso: string): string {
-  return new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-    timeZone: "UTC",
-  });
-}
-
 export function ArticlePage({
   collection,
   article,
   more,
+  locale,
+  dict,
+  bodyNotice,
   children,
 }: {
   collection: { name: string; indexRoute: string; imageEyebrow: string; backLabel: string; moreTitle: string };
   article: ArticlePageData;
   more: readonly ArticleCardData[];
+  locale: Locale;
+  dict: Dictionary;
+  bodyNotice?: string;
   children: React.ReactNode;
 }) {
   return (
     <div className="landing-page post-index">
-      <LandingHeader />
+      <LandingHeader locale={locale} dict={dict} />
 
       <main className="post-main">
         <div className="post-container">
@@ -56,7 +57,7 @@ export function ArticlePage({
               <h1 className="post-article-title">{article.title}</h1>
               <p className="post-article-standfirst">{article.description}</p>
               <p className="post-meta post-byline post-article-byline">
-                <time dateTime={article.publishedAt}>{formatDate(article.publishedAt)}</time>
+                <time dateTime={article.publishedAt}>{formatDate(article.publishedAt, locale)}</time>
                 <span>{article.author}</span>
               </p>
             </header>
@@ -67,6 +68,7 @@ export function ArticlePage({
             </div>
 
             <div className="post-prose" data-enter="post-prose">
+              {bodyNotice && <p className="post-lang-notice">{bodyNotice}</p>}
               {children}
             </div>
           </article>
@@ -74,7 +76,7 @@ export function ArticlePage({
           {more.length > 0 && (
             <RevealGroup className="post-more" slot="more">
               <h2 className="post-more-title" id="more-title">
-                More from OpenBot
+                {collection.moreTitle}
               </h2>
               <div className="post-grid">
                 {more.map((entry, index) => (
@@ -84,17 +86,18 @@ export function ArticlePage({
                     eyebrow={collection.imageEyebrow}
                     basePath={collection.indexRoute}
                     index={index}
+                    locale={locale}
                   />
                 ))}
               </div>
             </RevealGroup>
           )}
 
-          <ContentCallToAction />
+          <ContentCallToAction locale={locale} dict={dict} />
         </div>
       </main>
 
-      <LandingFooter />
+      <LandingFooter locale={locale} dict={dict} />
     </div>
   );
 }
