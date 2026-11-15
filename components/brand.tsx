@@ -101,6 +101,8 @@ export function AppLogo({
     [triggerClickReaction],
   );
 
+  if (variant === "production") return <img className={["app-logo", className].filter(Boolean).join(" ")} src="/media/atlas-si/v2/mark.webp" width="320" height="320" alt="Atlas-SI" />;
+
   return (
     <svg
       ref={logoRef}

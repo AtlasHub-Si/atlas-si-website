@@ -1,0 +1,238 @@
+{
+  "version": "2.0.0",
+  "reference_sha256": "948d374189b89b75458997bea03794ecb6207d6a15c5a49828cd154bc6b730b7",
+  "referenceComparison": {
+    "sameDimensions": true,
+    "meanChannelDifference": 0,
+    "changedChannelFraction": 0,
+    "source": "Visual Reference Kit is authoritative; older PR5 image retained for comparison only."
+  },
+  "logo_source_sha256": "fcfaa46d38ba22999ab352c86ac2609225cd9fceaba9fb303c91929c315100b5",
+  "assets": [
+    {
+      "id": "guide-320",
+      "source_sha256": "5523f41d837ce85f6577f26c3f607fdc4ee525a78c801dc530c60d0fd4916d79",
+      "path": "/media/atlas-si/v2/mascots/guide-320.webp",
+      "sha256": "5313bfefa947bb8ef44de01c59c0b55ea842558c41aa7db1dca5082449a9751d",
+      "width": 320,
+      "height": 320,
+      "bytes": 49486,
+      "approval": "STATIC_IDENTITY_APPROVED_DERIVATIVE",
+      "motion": false
+    },
+    {
+      "id": "guide-640",
+      "source_sha256": "5523f41d837ce85f6577f26c3f607fdc4ee525a78c801dc530c60d0fd4916d79",
+      "path": "/media/atlas-si/v2/mascots/guide-640.webp",
+      "sha256": "94143a12fd02f76b322385ff28c542f934e11903624aef7cfc206a3c52255d55",
+      "width": 640,
+      "height": 640,
+      "bytes": 170146,
+      "approval": "STATIC_IDENTITY_APPROVED_DERIVATIVE",
+      "motion": false
+    },
+    {
+      "id": "guide-960",
+      "source_sha256": "5523f41d837ce85f6577f26c3f607fdc4ee525a78c801dc530c60d0fd4916d79",
+      "path": "/media/atlas-si/v2/mascots/guide-960.webp",
+      "sha256": "820fe50f24379c76b10e711d856d567b056967069264af112fabd2a8d95d470c",
+      "width": 960,
+      "height": 960,
+      "bytes": 365914,
+      "approval": "STATIC_IDENTITY_APPROVED_DERIVATIVE",
+      "motion": false
+    },
+    {
+      "id": "creator-320",
+      "source_sha256": "6b675bc1bfdd205692a8df97468638f2018ccd311f5d635000c627a30184c191",
+      "path": "/media/atlas-si/v2/mascots/creator-320.webp",
+      "sha256": "b0f59badc1a8e7fb83f876883dd91723809894e12f24dc92b294f8ac85d59383",
+      "width": 320,
+      "height": 286,
+      "bytes": 38986,
+      "approval": "STATIC_IDENTITY_APPROVED_DERIVATIVE",
+      "motion": false
+    },
+    {
+      "id": "creator-640",
+      "source_sha256": "6b675bc1bfdd205692a8df97468638f2018ccd311f5d635000c627a30184c191",
+      "path": "/media/atlas-si/v2/mascots/creator-640.webp",
+      "sha256": "f05f1e16221185fdad533ee97943efa17415bb83c3863ccafc9434250c7031d4",
+      "width": 640,
+      "height": 573,
+      "bytes": 131214,
+      "approval": "STATIC_IDENTITY_APPROVED_DERIVATIVE",
+      "motion": false
+    },
+    {
+      "id": "creator-960",
+      "source_sha256": "6b675bc1bfdd205692a8df97468638f2018ccd311f5d635000c627a30184c191",
+      "path": "/media/atlas-si/v2/mascots/creator-960.webp",
+      "sha256": "e4b933ed20f6456d5c757c9f0039e9a8469e63748b4eef98861866a2daf1016b",
+      "width": 960,
+      "height": 859,
+      "bytes": 280498,
+      "approval": "STATIC_IDENTITY_APPROVED_DERIVATIVE",
+      "motion": false
+    },
+    {
+      "id": "builder-320",
+      "source_sha256": "a89279c3a8d4a71cb477d55fd7f419396243c557ee8ece28ef72e7d33b5d2063",
+      "path": "/media/atlas-si/v2/mascots/builder-320.webp",
+      "sha256": "0aff15c86d899c3f620c54f5a2170c5dab622dd0dd1964ec5d5e2eeb1b1c683e",
+      "width": 320,
+      "height": 320,
+      "bytes": 41218,
+      "approval": "STATIC_IDENTITY_APPROVED_DERIVATIVE",
+      "motion": false
+    },
+    {
+      "id": "builder-640",
+      "source_sha256": "a89279c3a8d4a71cb477d55fd7f419396243c557ee8ece28ef72e7d33b5d2063",
+      "path": "/media/atlas-si/v2/mascots/builder-640.webp",
+      "sha256": "a3ce9c9e8eaba05623996e560fa272629f241df0688702ea87a4f8651697d995",
+      "width": 640,
+      "height": 640,
+      "bytes": 130276,
+      "approval": "STATIC_IDENTITY_APPROVED_DERIVATIVE",
+      "motion": false
+    },
+    {
+      "id": "builder-960",
+      "source_sha256": "a89279c3a8d4a71cb477d55fd7f419396243c557ee8ece28ef72e7d33b5d2063",
+      "path": "/media/atlas-si/v2/mascots/builder-960.webp",
+      "sha256": "42e8b4c4419641b49be4b2e92d1d70109bd8372606aed916e1965a14a539d466",
+      "width": 960,
+      "height": 960,
+      "bytes": 265418,
+      "approval": "STATIC_IDENTITY_APPROVED_DERIVATIVE",
+      "motion": false
+    },
+    {
+      "id": "analyst-320",
+      "source_sha256": "4150e11ba14b14c86e2ec1bb9cd6480e5e561f4e6523fab89915367284606d24",
+      "path": "/media/atlas-si/v2/mascots/analyst-320.webp",
+      "sha256": "93e380e4ebb35fb7cab7404133f198331cd543fb6099aace4f2261eba707b246",
+      "width": 320,
+      "height": 320,
+      "bytes": 39326,
+      "approval": "STATIC_IDENTITY_APPROVED_DERIVATIVE",
+      "motion": false
+    },
+    {
+      "id": "analyst-640",
+      "source_sha256": "4150e11ba14b14c86e2ec1bb9cd6480e5e561f4e6523fab89915367284606d24",
+      "path": "/media/atlas-si/v2/mascots/analyst-640.webp",
+      "sha256": "74508df8efd44e0f3a44db5e351412017eac1e7d580bd8e387631a9d2d81638f",
+      "width": 640,
+      "height": 640,
+      "bytes": 136134,
+      "approval": "STATIC_IDENTITY_APPROVED_DERIVATIVE",
+      "motion": false
+    },
+    {
+      "id": "analyst-960",
+      "source_sha256": "4150e11ba14b14c86e2ec1bb9cd6480e5e561f4e6523fab89915367284606d24",
+      "path": "/media/atlas-si/v2/mascots/analyst-960.webp",
+      "sha256": "19a8377529488a8b81327aca84476389040ed1a74966a084074206aa40dc0f60",
+      "width": 960,
+      "height": 960,
+      "bytes": 283676,
+      "approval": "STATIC_IDENTITY_APPROVED_DERIVATIVE",
+      "motion": false
+    },
+    {
+      "id": "flow-320",
+      "source_sha256": "9805321d5a2c127ae027528662a922199519be5e1faf8c9a52f9d8c4d67700ec",
+      "path": "/media/atlas-si/v2/mascots/flow-320.webp",
+      "sha256": "4e5252132f99f76020e2615693584ca77d992bf114b12762594cece1f2703d24",
+      "width": 320,
+      "height": 320,
+      "bytes": 38542,
+      "approval": "STATIC_IDENTITY_APPROVED_DERIVATIVE",
+      "motion": false
+    },
+    {
+      "id": "flow-640",
+      "source_sha256": "9805321d5a2c127ae027528662a922199519be5e1faf8c9a52f9d8c4d67700ec",
+      "path": "/media/atlas-si/v2/mascots/flow-640.webp",
+      "sha256": "7f5efc5fec1a8f6033f8bdd41afeab94bfe4b91774551daff351d057ae57d786",
+      "width": 640,
+      "height": 640,
+      "bytes": 131278,
+      "approval": "STATIC_IDENTITY_APPROVED_DERIVATIVE",
+      "motion": false
+    },
+    {
+      "id": "flow-960",
+      "source_sha256": "9805321d5a2c127ae027528662a922199519be5e1faf8c9a52f9d8c4d67700ec",
+      "path": "/media/atlas-si/v2/mascots/flow-960.webp",
+      "sha256": "c975da6fdb9d721e39f52066f8e02c5d115d081e0d77a0a7438632e7b4b3f48c",
+      "width": 960,
+      "height": 960,
+      "bytes": 272648,
+      "approval": "STATIC_IDENTITY_APPROVED_DERIVATIVE",
+      "motion": false
+    },
+    {
+      "id": "shield-320",
+      "source_sha256": "28557661b81b53b57091452a55fb732b6cb7d4f683e0a6eceb531cc05f86faf0",
+      "path": "/media/atlas-si/v2/mascots/shield-320.webp",
+      "sha256": "722d493f7265799adde5b5fb0e4075bd965a1181d111097ea725f1788bdf07fb",
+      "width": 320,
+      "height": 320,
+      "bytes": 37704,
+      "approval": "STATIC_IDENTITY_APPROVED_DERIVATIVE",
+      "motion": false
+    },
+    {
+      "id": "shield-640",
+      "source_sha256": "28557661b81b53b57091452a55fb732b6cb7d4f683e0a6eceb531cc05f86faf0",
+      "path": "/media/atlas-si/v2/mascots/shield-640.webp",
+      "sha256": "c0bd9dca0a0327bb59ec77c7da1b84790de685552eac3ca31cddac3366a2c5dc",
+      "width": 640,
+      "height": 640,
+      "bytes": 124818,
+      "approval": "STATIC_IDENTITY_APPROVED_DERIVATIVE",
+      "motion": false
+    },
+    {
+      "id": "shield-960",
+      "source_sha256": "28557661b81b53b57091452a55fb732b6cb7d4f683e0a6eceb531cc05f86faf0",
+      "path": "/media/atlas-si/v2/mascots/shield-960.webp",
+      "sha256": "8b9044e5ba4c5b9ff20bbe056143626df34c53af4af57c7a25691c352d5642c3",
+      "width": 960,
+      "height": 960,
+      "bytes": 258030,
+      "approval": "STATIC_IDENTITY_APPROVED_DERIVATIVE",
+      "motion": false
+    },
+    {
+      "id": "cosmos",
+      "path": "/media/atlas-si/v2/cosmos.webp",
+      "sha256": "363a5053f78e5518b72cf2d1619c61df02fdff15566f8622fe75a137d367b7aa",
+      "approval": "CANDIDATE_IMPLEMENTATION_REVIEW",
+      "notes": "Controlled opacity; no atmospheric/energy candidate PNG used."
+    },
+    {
+      "id": "earth",
+      "path": "/media/atlas-si/v2/earth.webp",
+      "sha256": "b428afb759cff3cfd0ab1ae19b4e53a7c80e0e733fa72452dc64e8d5389e04bc",
+      "approval": "CANDIDATE_MASKED_STATIC_FALLBACK",
+      "notes": "Static horizon; CSS elliptical mask excludes loose pixels. No claim of physical rotation."
+    },
+    {
+      "id": "harness-scene",
+      "path": "/media/atlas-si/v2/harness-scene.webp",
+      "source_sha256": "948d374189b89b75458997bea03794ecb6207d6a15c5a49828cd154bc6b730b7",
+      "source_crop": {
+        "left": 400,
+        "top": 1010,
+        "width": 345,
+        "height": 165
+      },
+      "sha256": "6a9128d72b8ea14b329b8e4cb93dca8cec48e5a89a79b1f7f0f5c248c256b687",
+      "approval": "DERIVED_APPROVED_MAQUETTE_ART_ONLY_NO_UI_TEXT"
+    }
+  ]
+}
