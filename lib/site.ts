@@ -11,7 +11,7 @@ export type { PlatformLogoVariant };
 export const EXTERNAL_LINK_REL = "noopener noreferrer";
 
 export const ATLASBOT_LINKS = {
-  contact: "https://atlas-si.com",
+  contact: "mailto:sergiomonteiro@atlashub.si",
   download: "#download",
   downloadFromOtherPage: "/#download",
   news: "/news",
@@ -85,8 +85,9 @@ export function detectDownloadPlatform(source: {
   const platform =
     `${source.userAgentData?.platform ?? ""} ${source.platform ?? ""} ${source.userAgent ?? ""}`.toLowerCase();
 
+  if (/android|iphone|ipad|ipod|cros/.test(platform)) return undefined;
   if (/windows|win32|win64/.test(platform)) return "windows";
-  if (/mac|iphone|ipad|ipod|darwin/.test(platform)) return "macos";
-  if (/linux|cros|x11|ubuntu|debian|fedora/.test(platform)) return "linux";
+  if (/mac|darwin/.test(platform)) return "macos";
+  if (/linux|x11|ubuntu|debian|fedora/.test(platform)) return "linux";
   return undefined;
 }

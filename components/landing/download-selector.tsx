@@ -7,6 +7,7 @@
  */
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useDownloadStatus } from "@/components/atlas/downloads";
 import { PlatformLogo } from "@/components/brand";
 import { LandingIcon } from "@/components/icons";
 import { DOWNLOAD_PLATFORMS, DOWNLOAD_PLATFORM_ORDER, detectDownloadPlatform, type PlatformLogoVariant } from "@/lib/site";
@@ -18,7 +19,8 @@ export function HeroDownloadSelector({ dict }: { dict: Dictionary }) {
   const rootRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
 
-  const current = DOWNLOAD_PLATFORMS[platform];
+  const statuses = useDownloadStatus();
+  const current = {...DOWNLOAD_PLATFORMS[platform], ...statuses[platform]};
 
   const closeMenu = useCallback((restoreFocus = false) => {
     setOpen(false);
@@ -97,7 +99,7 @@ export function HeroDownloadSelector({ dict }: { dict: Dictionary }) {
         {current.available && current.href ? (
           <a className="landing-download-primary" href={current.href} data-state="available">
             <PlatformLogo platform={platform} />
-            {dict.download.actions[platform]}
+            {current.available ? dict.download.actions[platform] : dict.download.statusComingSoon}
           </a>
         ) : (
           <span className="landing-download-primary" data-state="coming-soon" aria-disabled="true">
@@ -121,8 +123,8 @@ export function HeroDownloadSelector({ dict }: { dict: Dictionary }) {
       {open && (
         <div className="landing-download-menu" role="menu" aria-label={dict.download.menuAria}>
           {DOWNLOAD_PLATFORM_ORDER.map((menuPlatform) => {
-            const details = DOWNLOAD_PLATFORMS[menuPlatform];
-            return details.available ? (
+            const details = {...DOWNLOAD_PLATFORMS[menuPlatform], ...statuses[menuPlatform]};
+            return details.available && details.href ? (
               <a
                 key={menuPlatform}
                 className="landing-download-menu-item"
