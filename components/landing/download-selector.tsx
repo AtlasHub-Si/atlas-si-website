@@ -122,7 +122,7 @@ export function HeroDownloadSelector({ dict }: { dict: Dictionary }) {
         <div className="landing-download-menu" role="menu" aria-label={dict.download.menuAria}>
           {DOWNLOAD_PLATFORM_ORDER.map((menuPlatform) => {
             const details = DOWNLOAD_PLATFORMS[menuPlatform];
-            return (
+            return details.available ? (
               <a
                 key={menuPlatform}
                 className="landing-download-menu-item"
@@ -134,10 +134,23 @@ export function HeroDownloadSelector({ dict }: { dict: Dictionary }) {
               >
                 <PlatformLogo platform={menuPlatform} />
                 <span>{details.label}</span>
-                <small>
-                  {details.status === "available" ? dict.download.statusAvailable : dict.download.statusComingSoon}
-                </small>
+                <small>{dict.download.statusAvailable}</small>
               </a>
+            ) : (
+              <button
+                key={menuPlatform}
+                className="landing-download-menu-item"
+                type="button"
+                role="menuitem"
+                aria-disabled="true"
+                data-state="coming-soon"
+                data-selected={platform === menuPlatform ? "true" : undefined}
+                onClick={() => selectPlatform(menuPlatform)}
+              >
+                <PlatformLogo platform={menuPlatform} />
+                <span>{details.label}</span>
+                <small>{dict.download.statusComingSoon}</small>
+              </button>
             );
           })}
         </div>
