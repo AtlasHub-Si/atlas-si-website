@@ -1,3 +1,17 @@
+# Atlas-SI Website V2.0
+
+Next.js 15 / React 19, PT/EN/FR/ES. Identidade Atlas, seis mascotes estáticas, demonstração de workflows e downloads oficiais protegidos por aprovação de release.
+
+- Produção: https://www.atlas-si.com
+- [Implementação, fontes e rollback](docs/atlas-v2/IMPLEMENTATION.md)
+- [Homologação e ativação dos downloads](docs/atlas-v2/DOWNLOADS.md)
+- `npm ci`, `npm test`, `npm run typecheck`, `npm run build`, `npm start`
+- QA: `node scripts/qa-atlas-v2.cjs http://127.0.0.1:3000 local` (Chrome/Edge; capturas em `.qa/`)
+
+Os masters não foram modificados. O formulário prepara um e-mail localmente; não existe envio transacional nem CRM configurado. Os downloads permanecem Em breve sem ATLASBOT_RELEASE_APPROVAL.
+
+## Documentação anterior e proveniência (histórico)
+
 # AtlasBot — sítio multilingue (PT · EN · FR · ES)
 
 Sítio público do **AtlasBot**, construído em **Next.js 15 (App Router) + React 19**,

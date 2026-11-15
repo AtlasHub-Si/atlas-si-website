@@ -9,6 +9,8 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useDownloadStatus } from "@/components/atlas/downloads";
+import type { Platform } from "@/lib/download-types";
 import { AppLogo } from "@/components/brand";
 import { detectDownloadPlatform, ATLASBOT_DOWNLOAD_LINKS } from "@/lib/site";
 import { localePath, type Locale } from "@/lib/i18n/config";
@@ -22,10 +24,13 @@ function toAtlasBotInviteUrl(canonical: string): string {
 }
 
 export function JoinCard({ locale, dict }: { locale: Locale; dict: Dictionary }) {
+  const downloadStatus = useDownloadStatus();
+
   const [openUrl, setOpenUrl] = useState("");
   const [downloadUrl, setDownloadUrl] = useState<string>(ATLASBOT_DOWNLOAD_LINKS.macos);
   const [mobile, setMobile] = useState(false);
   const [invalid, setInvalid] = useState(false);
+  const canOpen = !mobile && downloadStatus[downloadUrl.split("/").at(-1) as Platform].available;
 
   useEffect(() => {
     setMobile(
@@ -41,7 +46,8 @@ export function JoinCard({ locale, dict }: { locale: Locale; dict: Dictionary })
       validInvite = false;
       setInvalid(true);
     }
-    if (detectDownloadPlatform(window.navigator) === "windows") setDownloadUrl(ATLASBOT_DOWNLOAD_LINKS.windows);
+    const detected = detectDownloadPlatform(window.navigator);
+    if (detected) setDownloadUrl(ATLASBOT_DOWNLOAD_LINKS[detected]);
   }, []);
 
   return (
@@ -66,16 +72,16 @@ export function JoinCard({ locale, dict }: { locale: Locale; dict: Dictionary })
           <p className="join-card-error">{dict.join.error}</p>
         ) : (
           <div className="join-card-actions">
-            {openUrl ? (
+            {openUrl && canOpen ? (
               <a className="landing-button landing-button-primary landing-button-lg" href={openUrl} data-icon="open">
-                {dict.join.open}
+                {canOpen ? dict.join.open : dict.download.statusComingSoon}
               </a>
             ) : (
               <span className="landing-button landing-button-primary landing-button-lg join-card-disabled">
-                {dict.join.open}
+                {canOpen ? dict.join.open : dict.download.statusComingSoon}
               </span>
             )}
-            {!mobile && (
+            {!mobile && (downloadStatus[downloadUrl.split("/").at(-1) as Platform].available ? (
               <a
                 className="landing-button landing-button-secondary landing-button-lg"
                 href={downloadUrl}
@@ -83,7 +89,7 @@ export function JoinCard({ locale, dict }: { locale: Locale; dict: Dictionary })
               >
                 {dict.join.download}
               </a>
-            )}
+            ) : <span className="landing-button landing-button-secondary landing-button-lg" aria-disabled="true">{dict.download.statusComingSoon}</span>)}
           </div>
         )}
 

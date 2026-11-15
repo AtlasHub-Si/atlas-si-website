@@ -1,0 +1,395 @@
+{
+  "base": "https://atlas-si-website-hy1cifwku-atlas-hub1.vercel.app",
+  "started": "2026-11-15T05:48:47.019Z",
+  "viewports": [
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 2538,
+      "h1": 1,
+      "broken": [],
+      "cls": 0,
+      "lcp": 536,
+      "transferBytes": 5471,
+      "fonts": "loaded"
+    },
+    {
+      "width": 1086,
+      "scrollWidth": 1086,
+      "height": 2349,
+      "h1": 1,
+      "broken": [],
+      "cls": 0,
+      "lcp": 452,
+      "transferBytes": 5471,
+      "fonts": "loaded"
+    },
+    {
+      "width": 1024,
+      "scrollWidth": 1024,
+      "height": 2359,
+      "h1": 1,
+      "broken": [],
+      "cls": 0,
+      "lcp": 612,
+      "transferBytes": 5471,
+      "fonts": "loaded"
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "height": 2900,
+      "h1": 1,
+      "broken": [],
+      "cls": 0,
+      "lcp": 652,
+      "transferBytes": 4571,
+      "fonts": "loaded"
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 5274,
+      "h1": 1,
+      "broken": [],
+      "cls": 0,
+      "lcp": 864,
+      "transferBytes": 3971,
+      "fonts": "loaded"
+    }
+  ],
+  "routes": [
+    {
+      "path": "/pt",
+      "status": 200
+    },
+    {
+      "path": "/pt/guides",
+      "status": 200
+    },
+    {
+      "path": "/pt/guides/atlasbot-101",
+      "status": 200
+    },
+    {
+      "path": "/pt/plugins",
+      "status": 200
+    },
+    {
+      "path": "/pt/news",
+      "status": 200
+    },
+    {
+      "path": "/pt/news/introducing-atlasbot",
+      "status": 200
+    },
+    {
+      "path": "/pt/app-preview",
+      "status": 200
+    },
+    {
+      "path": "/pt/join",
+      "status": 200
+    },
+    {
+      "path": "/pt/credits",
+      "status": 200
+    },
+    {
+      "path": "/pt/privacy",
+      "status": 200
+    },
+    {
+      "path": "/pt/v2-preview",
+      "status": 200
+    },
+    {
+      "path": "/en",
+      "status": 200
+    },
+    {
+      "path": "/en/guides",
+      "status": 200
+    },
+    {
+      "path": "/en/guides/atlasbot-101",
+      "status": 200
+    },
+    {
+      "path": "/en/plugins",
+      "status": 200
+    },
+    {
+      "path": "/en/news",
+      "status": 200
+    },
+    {
+      "path": "/en/news/introducing-atlasbot",
+      "status": 200
+    },
+    {
+      "path": "/en/app-preview",
+      "status": 200
+    },
+    {
+      "path": "/en/join",
+      "status": 200
+    },
+    {
+      "path": "/en/credits",
+      "status": 200
+    },
+    {
+      "path": "/en/privacy",
+      "status": 200
+    },
+    {
+      "path": "/en/v2-preview",
+      "status": 200
+    },
+    {
+      "path": "/fr",
+      "status": 200
+    },
+    {
+      "path": "/fr/guides",
+      "status": 200
+    },
+    {
+      "path": "/fr/guides/atlasbot-101",
+      "status": 200
+    },
+    {
+      "path": "/fr/plugins",
+      "status": 200
+    },
+    {
+      "path": "/fr/news",
+      "status": 200
+    },
+    {
+      "path": "/fr/news/introducing-atlasbot",
+      "status": 200
+    },
+    {
+      "path": "/fr/app-preview",
+      "status": 200
+    },
+    {
+      "path": "/fr/join",
+      "status": 200
+    },
+    {
+      "path": "/fr/credits",
+      "status": 200
+    },
+    {
+      "path": "/fr/privacy",
+      "status": 200
+    },
+    {
+      "path": "/fr/v2-preview",
+      "status": 200
+    },
+    {
+      "path": "/es",
+      "status": 200
+    },
+    {
+      "path": "/es/guides",
+      "status": 200
+    },
+    {
+      "path": "/es/guides/atlasbot-101",
+      "status": 200
+    },
+    {
+      "path": "/es/plugins",
+      "status": 200
+    },
+    {
+      "path": "/es/news",
+      "status": 200
+    },
+    {
+      "path": "/es/news/introducing-atlasbot",
+      "status": 200
+    },
+    {
+      "path": "/es/app-preview",
+      "status": 200
+    },
+    {
+      "path": "/es/join",
+      "status": 200
+    },
+    {
+      "path": "/es/credits",
+      "status": 200
+    },
+    {
+      "path": "/es/privacy",
+      "status": 200
+    },
+    {
+      "path": "/es/v2-preview",
+      "status": 200
+    },
+    {
+      "path": "/download/windows",
+      "status": 503,
+      "redirect": null
+    },
+    {
+      "path": "/download/macos",
+      "status": 503,
+      "redirect": null
+    },
+    {
+      "path": "/download/linux",
+      "status": 503,
+      "redirect": null
+    },
+    {
+      "path": "/download/plan9",
+      "status": 404,
+      "redirect": null
+    },
+    {
+      "path": "/robots.txt",
+      "status": 200
+    },
+    {
+      "path": "/sitemap.xml",
+      "status": 200
+    },
+    {
+      "path": "/icon.png",
+      "status": 200
+    },
+    {
+      "path": "/og.png",
+      "status": 200
+    }
+  ],
+  "interactions": [
+    {
+      "check": "i18n",
+      "locale": "pt",
+      "width": 390,
+      "scrollWidth": 390,
+      "title": "Atlas-SI — AtlasBot e Atlas Harness",
+      "lang": "pt-PT",
+      "canonical": "https://www.atlas-si.com/pt",
+      "hreflang": 5
+    },
+    {
+      "check": "i18n",
+      "locale": "pt",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "title": "Atlas-SI — AtlasBot e Atlas Harness",
+      "lang": "pt-PT",
+      "canonical": "https://www.atlas-si.com/pt",
+      "hreflang": 5
+    },
+    {
+      "check": "i18n",
+      "locale": "en",
+      "width": 390,
+      "scrollWidth": 390,
+      "title": "Atlas-SI — AtlasBot and Atlas Harness",
+      "lang": "en",
+      "canonical": "https://www.atlas-si.com/en",
+      "hreflang": 5
+    },
+    {
+      "check": "i18n",
+      "locale": "en",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "title": "Atlas-SI — AtlasBot and Atlas Harness",
+      "lang": "en",
+      "canonical": "https://www.atlas-si.com/en",
+      "hreflang": 5
+    },
+    {
+      "check": "i18n",
+      "locale": "fr",
+      "width": 390,
+      "scrollWidth": 390,
+      "title": "Atlas-SI — AtlasBot et Atlas Harness",
+      "lang": "fr",
+      "canonical": "https://www.atlas-si.com/fr",
+      "hreflang": 5
+    },
+    {
+      "check": "i18n",
+      "locale": "fr",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "title": "Atlas-SI — AtlasBot et Atlas Harness",
+      "lang": "fr",
+      "canonical": "https://www.atlas-si.com/fr",
+      "hreflang": 5
+    },
+    {
+      "check": "i18n",
+      "locale": "es",
+      "width": 390,
+      "scrollWidth": 390,
+      "title": "Atlas-SI — AtlasBot y Atlas Harness",
+      "lang": "es",
+      "canonical": "https://www.atlas-si.com/es",
+      "hreflang": 5
+    },
+    {
+      "check": "i18n",
+      "locale": "es",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "title": "Atlas-SI — AtlasBot y Atlas Harness",
+      "lang": "es",
+      "canonical": "https://www.atlas-si.com/es",
+      "hreflang": 5
+    },
+    {
+      "check": "mobile menu and Escape focus",
+      "pass": true
+    },
+    {
+      "check": "workflow step / human gate / approve / reset",
+      "pass": true
+    },
+    {
+      "check": "play/pause",
+      "pass": true
+    },
+    {
+      "check": "validated contact form / mail draft / no send",
+      "pass": true
+    },
+    {
+      "check": "production release unavailable safe state",
+      "pass": true
+    },
+    {
+      "check": "future approved release activates local download link",
+      "pass": true
+    }
+  ],
+  "accessibility": [
+    {
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "width": 390,
+      "violations": []
+    }
+  ],
+  "consoleErrors": [],
+  "networkFailures": [],
+  "result": "PASS",
+  "finished": "2026-11-15T05:50:46.520Z"
+}

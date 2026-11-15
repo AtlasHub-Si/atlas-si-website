@@ -1,43 +1,16 @@
 import { NextResponse } from "next/server";
-
-/*
- * Download resolver, ported from apps/auth-api/src/server/latest-download.ts:
- * find the newest GitHub release asset for the platform and 302 to it. Falls
- * back to the releases page when the API is unreachable or yields nothing.
- */
-
-const REPO = "nightly-labs/openbot";
-
-const PLATFORMS = {
-  macos: { asset: /\.dmg$/i, label: "macOS" },
-  windows: { asset: /x64\.exe$/i, label: "Windows" },
-  linux: { asset: /x86_64\.AppImage$/i, label: "Linux" },
-} as const;
-
-type Platform = keyof typeof PLATFORMS;
-
-export async function GET(_request: Request, context: { params: Promise<{ platform: string }> }) {
+import { PLATFORMS, resolveAtlasDownloads, type Platform } from "@/lib/atlasbot-releases";
+export const dynamic = "force-dynamic";
+export async function GET(request: Request, context: { params: Promise<{ platform: string }> }) {
   const { platform } = await context.params;
-  if (!(platform in PLATFORMS)) {
-    return NextResponse.redirect(`https://github.com/${REPO}/releases`, 302);
+  const supported = PLATFORMS.includes(platform as Platform);
+  if (supported) {
+    const result = await resolveAtlasDownloads();
+    const target = result.targets[platform as Platform];
+    if (target) return NextResponse.redirect(target, { status: 302, headers: { "Cache-Control": "no-store", "X-Content-Type-Options": "nosniff" } });
   }
-
-  try {
-    const response = await fetch(`https://api.github.com/repos/${REPO}/releases/latest`, {
-      headers: { Accept: "application/vnd.github+json", "User-Agent": "atlasbot-site" },
-      cache: "no-store",
-      signal: AbortSignal.timeout(8000),
-    });
-    if (response.ok) {
-      const release = (await response.json()) as {
-        assets?: { name: string; browser_download_url: string }[];
-      };
-      const asset = release.assets?.find((entry) => PLATFORMS[platform as Platform].asset.test(entry.name));
-      if (asset) return NextResponse.redirect(asset.browser_download_url, 302);
-    }
-  } catch {
-    // Fall through to the releases page.
-  }
-
-  return NextResponse.redirect(`https://github.com/${REPO}/releases/latest`, 302);
+  const en = (request.headers.get("accept-language") ?? "").startsWith("en");
+  return new NextResponse('<!doctype html><html lang="' + (en ? 'en' : 'pt') + '"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>AtlasBot — ' + (en ? 'Coming soon' : 'Em breve') + '</title><style>body{background:#031024;color:#eefaff;font:18px system-ui;max-width:620px;margin:15vh auto;padding:24px}a{color:#36e5f5}h1{font-size:42px}</style><h1>AtlasBot</h1><p>' + (en ? 'The official installer will be available soon.' : 'O instalador oficial estará disponível brevemente.') + '</p><a href="/">' + (en ? 'Return to Atlas-SI' : 'Voltar ao Atlas-SI') + '</a></html>', {
+    status: supported ? 503 : 404, headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store", "X-Robots-Tag": "noindex", "X-Content-Type-Options": "nosniff", "Content-Security-Policy": "default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; frame-ancestors 'none'" },
+  });
 }

@@ -11,20 +11,20 @@ export type { PlatformLogoVariant };
 export const EXTERNAL_LINK_REL = "noopener noreferrer";
 
 export const ATLASBOT_LINKS = {
-  contact: "https://x.com/OpenBot_",
+  contact: "mailto:sergiomonteiro@atlashub.si",
   download: "#download",
   downloadFromOtherPage: "/#download",
   news: "/news",
   guides: "/guides",
   plugins: "/plugins",
-  releases: "https://github.com/nightly-labs/openbot/releases",
-  repository: "https://github.com/nightly-labs/openbot",
-  license: "https://github.com/nightly-labs/openbot/blob/main/LICENSE",
-  privacy: "https://github.com/nightly-labs/openbot/blob/main/PRIVACY.md",
-  documentation: "https://github.com/nightly-labs/openbot#readme",
-  troubleshooting: "https://github.com/nightly-labs/openbot/blob/main/docs/TROUBLESHOOTING.md",
-  architecture: "https://github.com/nightly-labs/openbot#architecture",
-  contributing: "https://github.com/nightly-labs/openbot/blob/main/CONTRIBUTING.md",
+  releases: "https://github.com/AtlasHub-Si/Atlas-Bot-Desktop/releases",
+  repository: "https://github.com/AtlasHub-Si/Atlas-Bot-Desktop",
+  license: "https://github.com/AtlasHub-Si/Atlas-Bot-Desktop/blob/main/LICENSE",
+  privacy: "https://github.com/AtlasHub-Si/Atlas-Bot-Desktop/blob/main/PRIVACY.md",
+  documentation: "https://github.com/AtlasHub-Si/Atlas-Bot-Desktop#readme",
+  troubleshooting: "https://github.com/AtlasHub-Si/Atlas-Bot-Desktop/blob/main/docs/TROUBLESHOOTING.md",
+  architecture: "https://github.com/AtlasHub-Si/Atlas-Bot-Desktop#architecture",
+  contributing: "https://github.com/AtlasHub-Si/Atlas-Bot-Desktop/blob/main/CONTRIBUTING.md",
   codex: "https://learn.chatgpt.com/docs/app-server",
   claude: "https://code.claude.com/docs/en/overview",
 } as const;
@@ -49,28 +49,28 @@ export const DOWNLOAD_PLATFORMS: Record<PlatformLogoVariant, DownloadPlatformDet
   macos: {
     id: "macos",
     label: "macOS",
-    status: "available",
+    status: "coming-soon",
     description: "macOS 13+ · Apple silicon",
     action: "Download for macOS",
-    available: true,
+    available: false,
     href: ATLASBOT_DOWNLOAD_LINKS.macos,
   },
   windows: {
     id: "windows",
     label: "Windows",
-    status: "available",
+    status: "coming-soon",
     description: "Windows 10+ · x64",
     action: "Download for Windows",
-    available: true,
+    available: false,
     href: ATLASBOT_DOWNLOAD_LINKS.windows,
   },
   linux: {
     id: "linux",
     label: "Linux",
-    status: "available",
+    status: "coming-soon",
     description: "x64 · AppImage",
     action: "Download for Linux",
-    available: true,
+    available: false,
     href: ATLASBOT_DOWNLOAD_LINKS.linux,
   },
 };
@@ -85,8 +85,9 @@ export function detectDownloadPlatform(source: {
   const platform =
     `${source.userAgentData?.platform ?? ""} ${source.platform ?? ""} ${source.userAgent ?? ""}`.toLowerCase();
 
+  if (/android|iphone|ipad|ipod|cros/.test(platform)) return undefined;
   if (/windows|win32|win64/.test(platform)) return "windows";
-  if (/mac|iphone|ipad|ipod|darwin/.test(platform)) return "macos";
-  if (/linux|cros|x11|ubuntu|debian|fedora/.test(platform)) return "linux";
+  if (/mac|darwin/.test(platform)) return "macos";
+  if (/linux|x11|ubuntu|debian|fedora/.test(platform)) return "linux";
   return undefined;
 }
