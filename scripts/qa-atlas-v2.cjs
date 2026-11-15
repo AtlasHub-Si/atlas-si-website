@@ -1,14 +1,15 @@
 const fs=require("node:fs"),path=require("node:path"),assert=require("node:assert/strict");
 const {chromium}=require("playwright-core");
+const privateInput=fs.readFileSync(0,"utf8"),auth=privateInput?JSON.parse(privateInput):{};
 const base=process.argv[2]??"http://127.0.0.1:3100",out=path.resolve(".qa",process.argv[3]??"local");
 fs.mkdirSync(out,{recursive:true});
 const report={base,started:new Date().toISOString(),viewports:[],routes:[],interactions:[],accessibility:[],consoleErrors:[],networkFailures:[]};
 let browser;
 async function main(){
- const executablePath=fs.existsSync("C:/Program Files/Google/Chrome/Application/chrome.exe")?"C:/Program Files/Google/Chrome/Application/chrome.exe":"C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe";
+ const executablePath=auth.browserPath??(fs.existsSync("C:/Program Files/Google/Chrome/Application/chrome.exe")?"C:/Program Files/Google/Chrome/Application/chrome.exe":"C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe");
  browser=await chromium.launch({executablePath,headless:true,args:["--disable-gpu"]});
  const context=await browser.newContext({viewport:{width:1440,height:1000},reducedMotion:"reduce",locale:"pt-PT"});
- const page=await context.newPage();page.setDefaultTimeout(12000);
+ const page=await context.newPage();page.setDefaultTimeout(12000);if(auth.accessUrl){if(new URL(auth.accessUrl).origin!==new URL(base).origin)throw Error("Preview origin mismatch");await page.goto(auth.accessUrl,{waitUntil:"networkidle",timeout:45000});}
  page.on("pageerror",e=>report.consoleErrors.push(e.message));
  page.on("requestfailed",r=>{if(!r.failure()?.errorText.includes("ERR_ABORTED"))report.networkFailures.push({path:new URL(r.url()).pathname,error:r.failure()?.errorText})});
  await page.addInitScript(()=>{window.__atlasMetrics={cls:0,lcp:0};try{new PerformanceObserver(list=>{for(const e of list.getEntries())if(!e.hadRecentInput)window.__atlasMetrics.cls+=e.value}).observe({type:"layout-shift",buffered:true});new PerformanceObserver(list=>{window.__atlasMetrics.lcp=list.getEntries().at(-1)?.startTime??0}).observe({type:"largest-contentful-paint",buffered:true})}catch{}});
@@ -52,7 +53,7 @@ async function main(){
  assert(await page.getByRole("button",{name:"Avançar",exact:true}).isDisabled());await page.getByRole("button",{name:"Aprovar simulação",exact:true}).click();assert(await page.locator(".a-message-agent").innerText().then(t=>t.includes("Flow")));await page.getByRole("button",{name:"Reiniciar",exact:true}).click();assert(await page.locator(".a-message-agent").innerText().then(t=>t.includes("Guide")));report.interactions.push({check:"workflow step / human gate / approve / reset",pass:true});
  await page.getByRole("button",{name:"Iniciar",exact:true}).click();await page.getByRole("button",{name:"Pausar",exact:true}).click();await page.waitForTimeout(2200);assert(await page.locator(".a-message-agent").innerText().then(t=>t.includes("Guide")));report.interactions.push({check:"play/pause",pass:true});
  await page.getByLabel("O seu nome",{exact:true}).fill("Teste QA");await page.getByLabel("O seu e-mail",{exact:true}).fill("qa@example.com");await page.getByLabel("Como podemos ajudar?",{exact:true}).fill("Validar a experiência Atlas-SI.");await page.getByRole("button",{name:"Preparar e-mail",exact:true}).click();
- const mail=await page.locator(".a-email-ready a").getAttribute("href");assert(mail.startsWith("mailto:sergiomonteiro@atlashub.si?"));assert(mail.includes("qa%40example.com"));report.interactions.push({check:"validated contact form / mail draft / no send",pass:true});
+ const mail=await page.locator(".a-email-ready a").getAttribute("href");assert(mail.startsWith("mailto:sergiomonteiro@atlashub.si?"));assert(mail.includes("qa%40example.com"));assert(mail.includes("Teste%20QA"));report.interactions.push({check:"validated contact form / mail draft / no send",pass:true});
  const routes=["","/guides","/guides/atlasbot-101","/plugins","/news","/news/introducing-atlasbot","/app-preview","/join","/credits","/privacy","/v2-preview"];
  console.log("Route smoke");for(const locale of ["pt","en","fr","es"])for(const route of routes){const r=await context.request.get(base+"/"+locale+route);report.routes.push({path:"/"+locale+route,status:r.status()});assert.equal(r.status(),200,"Route "+locale+route);if(route==="/v2-preview")assert((await r.text()).includes('noindex'));}
  for(const platform of ["windows","macos","linux","plan9"]){const r=await context.request.get(base+"/download/"+platform,{maxRedirects:0});assert.equal(r.status(),platform==="plan9"?404:503);assert(!r.headers().location);assert(!(await r.text()).includes("nightly-labs"));report.routes.push({path:"/download/"+platform,status:r.status(),redirect:null});}
@@ -68,4 +69,4 @@ async function main(){
  await browser.close();assert.equal(violations.length,0,"Accessibility violations: "+violations.map(v=>v.id).join(","));
  console.log(JSON.stringify({result:report.result,viewports:report.viewports,routes:report.routes.length,interactions:report.interactions.length,axeViolations:violations.length}));
 }
-main().catch(async error=>{report.result="FAIL";report.error=error.message;fs.writeFileSync(path.join(out,"report.json"),JSON.stringify(report,null,2));console.error(error.stack);if(browser)await browser.close();process.exitCode=1;});
+main().catch(async error=>{report.result="FAIL";report.error=String(error.message).replace(/([?&])_vercel_share=[^\s]+/g,"$1[redacted]");fs.writeFileSync(path.join(out,"report.json"),JSON.stringify(report,null,2));console.error(report.error);if(browser)await browser.close();process.exitCode=1;});
