@@ -1,0 +1,28 @@
+{
+  "version": "2.0.0",
+  "productionCommit": "af45df4a78f418d377522c0eb9952a47ec8207ef",
+  "files": [
+    {
+      "name": "Atlas_SI_V2_Desktop_1440.png",
+      "bytes": 2986591,
+      "format": "png",
+      "width": 1440,
+      "height": 2538,
+      "sha256": "c6dc1ac5c1547f73e099acf7003d8e8412f9215c388f0f061da1cd0e57f8c88b"
+    },
+    {
+      "name": "Atlas_SI_V2_Mobile_390.png",
+      "bytes": 1713349,
+      "format": "png",
+      "width": 390,
+      "height": 5274,
+      "sha256": "2d3a53270702e9fa60fffb03bf4dfab9fbcd1ac8965a8085457130d1a90fd9e6"
+    },
+    {
+      "name": "Atlas_SI_V2_Production_Report.md",
+      "bytes": 9383,
+      "format": "markdown",
+      "sha256": "77bad8ce3db2bda768036c2d5f0da43d96f84820fe75c37b7e8b5acc05b5113b"
+    }
+  ]
+}
