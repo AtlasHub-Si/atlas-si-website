@@ -12,6 +12,9 @@ Os masters não foram modificados. O formulário prepara um e-mail localmente; n
 
 ## Documentação anterior e proveniência (histórico)
 
+> **Arquivo histórico — não utilizar como instruções operacionais.** A secção abaixo reproduz documentação de versões anteriores e contém caminhos, APIs, redes sociais e instruções de deploy/descarregamento que **não representam a V2 atual**. Para executar, configurar, publicar ou distribuir AtlasBot, utilizar exclusivamente os documentos versionados [Implementação V2](docs/atlas-v2/IMPLEMENTATION.md) e [Gate de releases e downloads](docs/atlas-v2/DOWNLOADS.md). Nenhum binário da origem deve ser apresentado como uma release AtlasBot. Atribuições e créditos históricos devem ser preservados.
+
+
 # AtlasBot — sítio multilingue (PT · EN · FR · ES)
 
 Sítio público do **AtlasBot**, construído em **Next.js 15 (App Router) + React 19**,
