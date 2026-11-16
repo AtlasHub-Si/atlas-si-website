@@ -142,12 +142,13 @@ function YourWorkStaysOnYourComputer() {
         load from the internet. Plugins can still make requests.
       </p>
       <p>
-        The honest version of the promise is narrower than the slogan: AtlasBot adds no hop of its own. We wrote down
-        exactly which data leaves your machine and why in the{" "}
+        Local-first storage does not mean zero network traffic: model providers, connected tools and optional account
+        services can process data. AtlasBot-specific service privacy terms are not yet published; the original
+        software operator's policy is not an AtlasBot policy. See the{" "}
         <a href={ATLASBOT_LINKS.privacy} target="_blank" rel={EXTERNAL_LINK_REL}>
-          privacy notes
-        </a>
-        .
+          current legal scope and attribution references
+        </a>{" "}
+        and review each provider's policies before enabling an integration.
       </p>
 
       <h2>What an account is for</h2>
