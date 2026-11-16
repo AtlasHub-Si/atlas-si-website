@@ -20,7 +20,8 @@ export const ATLASBOT_LINKS = {
   releases: "https://github.com/AtlasHub-Si/Atlas-Bot-Desktop/releases",
   repository: "https://github.com/AtlasHub-Si/Atlas-Bot-Desktop",
   license: "https://github.com/AtlasHub-Si/Atlas-Bot-Desktop/blob/main/LICENSE",
-  privacy: "https://github.com/AtlasHub-Si/Atlas-Bot-Desktop/blob/main/PRIVACY.md",
+  // AtlasBot account privacy is not published; link to the explicit legal scope notice.
+  privacy: "https://www.atlas-si.com/pt/terms",
   documentation: "https://github.com/AtlasHub-Si/Atlas-Bot-Desktop#readme",
   troubleshooting: "https://github.com/AtlasHub-Si/Atlas-Bot-Desktop/blob/main/docs/TROUBLESHOOTING.md",
   architecture: "https://github.com/AtlasHub-Si/Atlas-Bot-Desktop#architecture",
