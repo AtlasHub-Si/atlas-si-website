@@ -81,20 +81,16 @@ function AtlasBot101() {
         caption="A thread is the answer and the work behind it: mentions of other agents, the files that were read, and the command it wants run next."
       />
 
-      <h2>Install it, then connect a provider</h2>
+      <h2>Installing AtlasBot: official release approval</h2>
       <p>
-        AtlasBot runs on macOS 13 or newer on Apple silicon, Windows 10 or newer on x64, and x64 Linux as an AppImage.
-        Grab the installer from{" "}
+        AtlasBot installers are currently unavailable for public distribution. A release must be approved and signed by
+        the Atlas team before it becomes available through the official website. The{" "}
         <a href={ATLASBOT_LINKS.releases} target="_blank" rel={EXTERNAL_LINK_REL}>
-          GitHub Releases
-        </a>
-        . The Windows preview is not code-signed yet, so Windows may warn about an unknown publisher. Check the release
-        checksum before you run it. On Ubuntu 23.10 or newer and on Debian 13, the AppImage needs an AppArmor profile
-        first.{" "}
-        <a href={ATLASBOT_LINKS.documentation} target="_blank" rel={EXTERNAL_LINK_REL}>
-          The README
+          AtlasBot GitHub Releases
         </a>{" "}
-        has the two commands that install it.
+        page is the repository's release source, not proof that an installer has passed security or platform acceptance.
+        Do not substitute a binary from the original OpenBot project or an unsigned internal build. Once an approved
+        installer exists, follow its published platform requirements and checksum instructions.
       </p>
       <p>
         Then pick a provider. In onboarding, in Settings or in the model picker, select one and press{" "}
@@ -136,11 +132,12 @@ function AtlasBot101() {
         system allows. Run agents and tasks you trust, and keep backups.
       </p>
       <p>
-        What the application sends, and what it never sends, is written down in{" "}
+        AtlasBot-specific account and service privacy terms have not yet been published. The privacy document of the
+        original software operator does not govern AtlasBot. See the{" "}
         <a href={ATLASBOT_LINKS.privacy} target="_blank" rel={EXTERNAL_LINK_REL}>
-          the privacy document
-        </a>
-        .
+          current Atlas legal scope and source references
+        </a>{" "}
+        before connecting remote services; the institutional website privacy notice covers only this website.
       </p>
 
       <h2>Channels: more than one agent on one thing</h2>
