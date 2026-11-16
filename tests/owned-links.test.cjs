@@ -27,10 +27,20 @@ test("Atlas-owned repo and fail-closed distribution remain canonical", () => {
   const resolver = read("lib/atlasbot-releases.ts");
   const handler = read("app/download/[platform]/route.ts");
   assert.match(links, /github\.com\/AtlasHub-Si\/Atlas-Bot-Desktop/);
+  assert.doesNotMatch(links, /Atlas-Bot-Desktop\\/blob\\/main\\/PRIVACY\\.md/, "Do not present inherited privacy as AtlasBot policy");
+  assert.match(links, /www\\.atlas-si\\.com\\/pt\\/terms/, "Atlas legal terms must explain scope");
   assert.match(resolver, /homologated:true/);
   assert.match(resolver, /signatureVerified:true/);
   assert.match(resolver, /updaterVerified:true/);
   assert.match(handler, /status: supported \? 503 : 404/);
+});
+
+test("Editorial statements do not claim approved installers or inherited Atlas service privacy", () => {
+  const guides = read("content/guides.tsx");
+  const news = read("content/news.tsx");
+  assert.match(guides, /installers are currently unavailable for public distribution/);
+  assert.match(guides, /AtlasBot-specific account and service privacy terms have not yet been published/);
+  assert.match(news, /AtlasBot-specific service privacy terms are not yet published/);
 });
 
 test("Legal attribution remains explicit and separate from institutional privacy", () => {
