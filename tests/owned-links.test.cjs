@@ -27,8 +27,8 @@ test("Atlas-owned repo and fail-closed distribution remain canonical", () => {
   const resolver = read("lib/atlasbot-releases.ts");
   const handler = read("app/download/[platform]/route.ts");
   assert.match(links, /github\.com\/AtlasHub-Si\/Atlas-Bot-Desktop/);
-  assert.doesNotMatch(links, /Atlas-Bot-Desktop\\/blob\\/main\\/PRIVACY\\.md/, "Do not present inherited privacy as AtlasBot policy");
-  assert.match(links, /www\\.atlas-si\\.com\\/pt\\/terms/, "Atlas legal terms must explain scope");
+  assert.ok(!links.includes("Atlas-Bot-Desktop/blob/main/PRIVACY.md"), "Do not present inherited privacy as AtlasBot policy");
+  assert.ok(links.includes("https://www.atlas-si.com/pt/terms"), "Atlas legal terms must explain scope");
   assert.match(resolver, /homologated:true/);
   assert.match(resolver, /signatureVerified:true/);
   assert.match(resolver, /updaterVerified:true/);
